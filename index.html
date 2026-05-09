@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1628">
+<title>IFC Study Guide</title>
+<style>
+/* ===== 1. Custom Properties ===== */
+:root {
+  --navy: #0a1628;
+  --navy-mid: #1a2d4a;
+  --navy-light: #243d60;
+  --teal: #0d9488;
+  --teal-light: #14b8a6;
+  --orange: #f97316;
+  --white: #ffffff;
+  --grey-light: #f1f5f9;
+  --grey-mid: #94a3b8;
+  --grey-dark: #475569;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ===== 2. Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--navy); color: var(--white); min-height: 100vh; }
+button { cursor: pointer; font-family: var(--font); }
+input { font-family: var(--font); }
+
+/* ===== 3. Layout ===== */
+#header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; background: var(--navy-mid);
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.header-left { display: flex; align-items: center; gap: 10px; }
+.header-back {
+  background: none; border: none; color: var(--grey-mid);
+  font-size: 1.3rem; padding: 4px 8px; display: none;
+  transition: color 0.2s;
+}
+.header-back:hover { color: var(--white); }
+.header-logo { font-size: 1.1rem; font-weight: 700; color: var(--teal-light); letter-spacing: -0.01em; }
+.header-gear { background: none; border: none; color: var(--grey-mid); font-size: 1.3rem; padding: 4px 8px; transition: color 0.2s; }
+.header-gear:hover { color: var(--white); }
+#app { max-width: 680px; margin: 0 auto; padding: 20px 16px 80px; }
+.hidden { display: none !important; }
+
+/* ===== 4. Toast ===== */
+#toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--navy-mid); color: var(--white);
+  padding: 10px 22px; border-radius: 20px; font-size: 0.9rem;
+  z-index: 300; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  white-space: nowrap;
+}
+#toast.visible { opacity: 1; }
+
+/* ===== 5. Dashboard ===== */
+.dash-header { margin-bottom: 24px; }
+.dash-greeting { font-size: 0.9rem; color: var(--grey-mid); margin-bottom: 4px; }
+.dash-title { font-size: 1.7rem; font-weight: 800; color: var(--white); }
+.section-label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--grey-mid); margin: 24px 0 12px;
+}
+.chapter-card {
+  background: var(--navy-mid); border-radius: var(--radius);
+  padding: 18px 20px; margin-bottom: 12px;
+  border: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; gap: 16px;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+  text-decoration: none; color: inherit;
+}
+.chapter-card:hover { background: var(--navy-light); }
+.chapter-card:active { transform: scale(0.98); }
+.chapter-card.locked { opacity: 0.45; cursor: default; }
+.chapter-card.locked:hover { background: var(--navy-mid); }
+.ch-num {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--navy-light); display: flex; align-items: center;
+  justify-content: center; font-weight: 800; font-size: 1rem;
+  color: var(--teal-light); flex-shrink: 0;
+  border: 2px solid rgba(20,184,166,0.3);
+}
+.chapter-card.locked .ch-num { color: var(--grey-mid); border-color: transparent; }
+.ch-info { flex: 1; min-width: 0; }
+.ch-title { font-weight: 600; font-size: 0.95rem; line-height: 1.3; margin-bottom: 4px; }
+.ch-progress-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+.ch-progress-fill { height: 100%; background: var(--teal); border-radius: 2px; transition: width 0.5s; }
+.ch-lock { color: var(--grey-mid); font-size: 1rem; flex-shrink: 0; }
+.ch-arrow { color: var(--grey-mid); font-size: 1rem; flex-shrink: 0; }
+
+/* ===== 6. Mode Selection ===== */
+.mode-header { margin-bottom: 20px; }
+.mode-ch-label { font-size: 0.8rem; color: var(--teal-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.mode-ch-title { font-size: 1.4rem; font-weight: 800; line-height: 1.2; }
+.mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mode-btn {
+  background: var(--navy-mid); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);
+  padding: 18px 16px; text-align: left; cursor: pointer;
+  transition: background 0.2s, transform 0.1s; color: var(--white);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mode-btn:hover { background: var(--navy-light); }
+.mode-btn:active { transform: scale(0.97); }
+.mode-btn.disabled { opacity: 0.4; cursor: default; }
+.mode-btn.disabled:hover { background: var(--navy-mid); }
+.mode-icon { font-size: 1.6rem; }
+.mode-name { font-weight: 700; font-size: 0.95rem; }
+.mode-desc { font-size: 0.78rem; color: var(--grey-mid); line-height: 1.3; }
+
+/* ===== 7. Shared Study UI ===== */
+.study-header { margin-bottom: 20px; }
+.study-mode-label { font-size: 0.8rem; color: var(--teal-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.study-progress-row { display: flex; align-items: center; gap: 10px; }
+.study-progress-bar { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+.study-progress-fill { height: 100%; background: var(--teal); border-radius: 3px; transition: width 0.4s; }
+.study-progress-text { font-size: 0.8rem; color: var(--grey-mid); white-space: nowrap; }
+.question-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 24px; color: var(--navy); box-shadow: var(--card-shadow);
+  margin-bottom: 16px; min-height: 140px;
+}
+.question-text { font-size: 1.1rem; font-weight: 600; line-height: 1.5; }
+.options-list { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.option-btn {
+  background: var(--navy-mid); border: 2px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+  text-align: left; color: var(--white); font-size: 0.95rem; font-weight: 500;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  line-height: 1.4;
+}
+.option-btn:hover:not(:disabled) { background: var(--navy-light); border-color: rgba(255,255,255,0.2); }
+.option-btn:active:not(:disabled) { transform: scale(0.98); }
+.option-btn.correct { background: #14532d; border-color: var(--success); }
+.option-btn.wrong { background: #450a0a; border-color: var(--danger); }
+.option-btn:disabled { cursor: default; }
+.explanation-box {
+  background: var(--navy-mid); border-radius: var(--radius-sm);
+  padding: 14px 16px; font-size: 0.9rem; line-height: 1.5;
+  color: var(--grey-light); border-left: 3px solid var(--teal);
+  margin-top: 4px;
+}
+.btn-row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 13px 24px; border-radius: var(--radius-sm);
+  font-size: 0.95rem; font-weight: 700; border: none;
+  transition: opacity 0.2s, transform 0.1s; flex: 1;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--teal); color: var(--white); }
+.btn-primary:hover { opacity: 0.9; }
+.btn-secondary { background: var(--navy-mid); color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
+.btn-secondary:hover { background: var(--navy-light); }
+.btn-danger { background: var(--danger); color: var(--white); }
+.btn-success { background: var(--success); color: var(--white); }
+.btn-lg { padding: 16px 32px; font-size: 1.05rem; }
+
+/* ===== 8. Flashcards ===== */
+.flashcard-scene { perspective: 1000px; margin-bottom: 16px; }
+.flashcard-card {
+  position: relative; width: 100%; min-height: 200px;
+  transition: transform 0.55s; transform-style: preserve-3d;
+  cursor: pointer;
+}
+.flashcard-card.flipped { transform: rotateY(180deg); }
+.flashcard-face {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  border-radius: var(--radius); padding: 28px 24px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; box-shadow: var(--card-shadow);
+  min-height: 200px;
+}
+.flashcard-front { background: var(--white); color: var(--navy); }
+.flashcard-back { background: var(--navy-light); color: var(--white); transform: rotateY(180deg); }
+.flashcard-front-text { font-size: 1.15rem; font-weight: 700; line-height: 1.5; }
+.flashcard-back-text { font-size: 1rem; line-height: 1.6; white-space: pre-line; }
+.flashcard-tap-hint { font-size: 0.78rem; color: var(--grey-mid); text-align: center; margin-bottom: 12px; }
+.bucket-label {
+  text-align: center; font-size: 0.8rem; color: var(--grey-mid); margin-bottom: 12px;
+}
+.bucket-label span { color: var(--teal-light); font-weight: 700; }
+.fc-action-row { display: flex; gap: 10px; margin-top: 12px; }
+.fc-action-row .btn { padding: 14px; }
+
+/* ===== 9. Matching Game ===== */
+.match-timer { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-light); margin-bottom: 12px; }
+.match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.match-card {
+  background: var(--navy-mid); border: 2px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm); padding: 14px 12px;
+  text-align: center; cursor: pointer; font-size: 0.88rem; font-weight: 600;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  min-height: 64px; display: flex; align-items: center; justify-content: center;
+  line-height: 1.3;
+}
+.match-card:hover { background: var(--navy-light); border-color: rgba(255,255,255,0.2); }
+.match-card.selected { border-color: var(--teal-light); background: rgba(14,148,136,0.2); }
+.match-card.matched { background: rgba(34,197,94,0.15); border-color: var(--success); color: var(--success); cursor: default; }
+.match-card.wrong { border-color: var(--danger); background: rgba(239,68,68,0.15); }
+@keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+.shake { animation: shake 0.4s ease-in-out; }
+
+/* ===== 10. Fill in the Blank ===== */
+.fib-sentence {
+  font-size: 1.1rem; font-weight: 600; line-height: 1.6;
+  color: var(--navy); padding: 24px;
+  background: var(--white); border-radius: var(--radius);
+  margin-bottom: 14px; box-shadow: var(--card-shadow);
+}
+.fib-blank { display: inline-block; min-width: 120px; border-bottom: 3px solid var(--teal); color: transparent; padding: 0 4px; }
+.fib-hint { font-size: 0.82rem; color: var(--grey-mid); margin-bottom: 10px; }
+.fib-input {
+  width: 100%; padding: 14px 16px; border-radius: var(--radius-sm);
+  border: 2px solid rgba(255,255,255,0.15); background: var(--navy-mid);
+  color: var(--white); font-size: 1rem; font-weight: 600;
+  outline: none; transition: border-color 0.2s;
+}
+.fib-input:focus { border-color: var(--teal-light); }
+.fib-input.correct { border-color: var(--success); background: rgba(34,197,94,0.1); }
+.fib-input.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+.fib-answer { margin-top: 8px; font-size: 0.9rem; color: var(--success); font-weight: 600; }
+
+/* ===== 11. True/False ===== */
+.tf-statement {
+  font-size: 1.15rem; font-weight: 600; line-height: 1.5;
+  color: var(--navy); padding: 28px 24px; text-align: center;
+  background: var(--white); border-radius: var(--radius);
+  margin-bottom: 16px; box-shadow: var(--card-shadow); min-height: 160px;
+  display: flex; align-items: center; justify-content: center;
+}
+.tf-btn-row { display: flex; gap: 12px; }
+.tf-btn {
+  flex: 1; padding: 18px; border-radius: var(--radius-sm);
+  font-size: 1.1rem; font-weight: 800; border: 2px solid transparent;
+  transition: transform 0.1s, opacity 0.2s;
+}
+.tf-btn:active { transform: scale(0.97); }
+.tf-true { background: rgba(34,197,94,0.15); color: var(--success); border-color: var(--success); }
+.tf-false { background: rgba(239,68,68,0.15); color: var(--danger); border-color: var(--danger); }
+.tf-score { text-align: center; font-size: 1rem; color: var(--grey-mid); margin-bottom: 14px; }
+.tf-score span { color: var(--white); font-weight: 700; }
+
+/* ===== 12. Speed Round ===== */
+.speed-timer-ring { text-align: center; margin-bottom: 16px; }
+.speed-time { font-size: 3rem; font-weight: 900; color: var(--teal-light); line-height: 1; }
+.speed-time.low { color: var(--danger); }
+.speed-score-big { text-align: center; font-size: 1.2rem; color: var(--grey-mid); margin-bottom: 16px; }
+.speed-score-big span { font-size: 2rem; font-weight: 800; color: var(--white); }
+.speed-card {
+  background: var(--white); color: var(--navy);
+  border-radius: var(--radius); padding: 28px 24px;
+  text-align: center; font-size: 1.1rem; font-weight: 700;
+  min-height: 140px; display: flex; align-items: center; justify-content: center;
+  line-height: 1.5; margin-bottom: 16px; box-shadow: var(--card-shadow);
+}
+.speed-answer-row { display: flex; gap: 10px; }
+.speed-answer-row .btn { padding: 16px; font-size: 0.9rem; }
+
+/* ===== 13. Chapter Quiz / Practice Exam ===== */
+.quiz-header-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.quiz-q-label { font-size: 0.8rem; color: var(--teal-light); font-weight: 700; text-transform: uppercase; }
+.quiz-timer { font-size: 0.9rem; font-weight: 700; color: var(--grey-mid); }
+.quiz-timer.low { color: var(--danger); }
+.score-card {
+  background: var(--navy-mid); border-radius: var(--radius); padding: 28px 24px;
+  text-align: center; border: 1px solid rgba(255,255,255,0.07);
+}
+.score-pct { font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+.score-label { color: var(--grey-mid); font-size: 0.9rem; margin-bottom: 20px; }
+.score-pass { color: var(--success); }
+.score-fail { color: var(--danger); }
+.review-item {
+  background: var(--navy-mid); border-radius: var(--radius-sm);
+  padding: 14px 16px; margin-bottom: 10px;
+  border-left: 4px solid transparent;
+}
+.review-item.correct { border-color: var(--success); }
+.review-item.wrong { border-color: var(--danger); }
+.review-q { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; color: var(--white); }
+.review-a { font-size: 0.82rem; color: var(--grey-mid); }
+.review-correct { color: var(--success); font-weight: 600; }
+.review-wrong { color: var(--danger); font-weight: 600; }
+
+/* ===== 14. Weak Spots ===== */
+.weak-empty { text-align: center; padding: 40px 20px; color: var(--grey-mid); }
+.weak-empty-icon { font-size: 3rem; margin-bottom: 12px; }
+
+/* ===== 15. Settings ===== */
+.settings-panel { background: var(--navy-mid); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+.settings-item {
+  padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; transition: background 0.15s;
+}
+.settings-item:last-child { border-bottom: none; }
+.settings-item:hover { background: var(--navy-light); }
+.settings-item-text .label { font-weight: 600; font-size: 0.95rem; }
+.settings-item-text .desc { font-size: 0.8rem; color: var(--grey-mid); margin-top: 2px; }
+.settings-arrow { color: var(--grey-mid); }
+.about-box { background: var(--navy-mid); border-radius: var(--radius); padding: 20px; margin-top: 16px; border: 1px solid rgba(255,255,255,0.07); text-align: center; }
+.about-box .logo { font-size: 1.4rem; font-weight: 800; color: var(--teal-light); margin-bottom: 6px; }
+.about-box .sub { font-size: 0.82rem; color: var(--grey-mid); line-height: 1.5; }
+
+/* ===== 16. Modal / Confirm Dialog ===== */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 400; padding: 20px;
+}
+.modal-box {
+  background: var(--navy-mid); border-radius: var(--radius);
+  padding: 28px 24px; max-width: 360px; width: 100%;
+  border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+.modal-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+.modal-body { font-size: 0.9rem; color: var(--grey-mid); line-height: 1.5; margin-bottom: 20px; }
+.modal-btn-row { display: flex; gap: 10px; }
+.modal-btn-row .btn { flex: 1; }
+
+/* ===== 17. Result / End Screens ===== */
+.end-screen { text-align: center; padding: 20px 0; }
+.end-icon { font-size: 4rem; margin-bottom: 12px; }
+.end-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+.end-sub { color: var(--grey-mid); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
+
+/* ===== 18. Animations ===== */
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.animate-in { animation: fadeIn 0.25s ease-out; }
+@keyframes popIn { from{transform:scale(0.85);opacity:0} to{transform:scale(1);opacity:1} }
+.pop-in { animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+
+/* ===== 19. Responsive ===== */
+@media (max-width: 480px) {
+  .mode-grid { grid-template-columns: 1fr; }
+  .flashcard-front-text { font-size: 1rem; }
+  .score-pct { font-size: 3rem; }
+  .tf-statement { font-size: 1rem; padding: 20px; }
+  .match-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .match-card { font-size: 0.8rem; padding: 10px 8px; min-height: 54px; }
+}
+
+/* ===== 20. Exam Progress Bar (special) ===== */
+.exam-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px; font-size: 0.82rem; color: var(--grey-mid);
+}
+.exam-top span { font-weight: 700; color: var(--white); }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-left">
+    <button class="header-back" id="btnBack" aria-label="Go back">&#8592;</button>
+    <div class="header-logo">IFC Study Guide</div>
+  </div>
+  <button class="header-gear" id="btnSettings" aria-label="Settings">&#9881;</button>
+</header>
+
+<div id="toast"></div>
+<div id="modal-overlay" class="modal-overlay hidden"></div>
+<main id="app"></main>
+
+<script>
+'use strict';
+
+/* ================================================
+   MODULE: Storage
+   ================================================ */
+const Storage = {
+  KEY: 'ifc_progress',
+  MAX_BYTES: 1_900_000,
+
+  load() {
+    try { return JSON.parse(localStorage.getItem(this.KEY) || '{}'); }
+    catch { return {}; }
+  },
+
+  save(data) {
+    try {
+      const str = JSON.stringify(data);
+      if (str.length > this.MAX_BYTES) { console.warn('Storage near cap, pruning...'); }
+      localStorage.setItem(this.KEY, str);
+    } catch(e) { console.error('Storage save failed', e); }
+  },
+
+  get(path, def = undefined) {
+    const d = this.load();
+    return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), d) ?? def;
+  },
+
+  set(path, value) {
+    const d = this.load();
+    const keys = path.split('.');
+    let obj = d;
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (!obj[keys[i]]) obj[keys[i]] = {};
+      obj = obj[keys[i]];
+    }
+    obj[keys[keys.length - 1]] = value;
+    this.save(d);
+  },
+
+  clear() { localStorage.removeItem(this.KEY); }
+};
+
+/* ================================================
+   MODULE: State
+   ================================================ */
+const State = {
+  currentView: 'dashboard',
+  currentChapter: null,
+  currentMode: null,
+  chapterData: {},
+  toc: null,
+
+  setView(view, ch = null, mode = null) {
+    this.currentView = view;
+    this.currentChapter = ch;
+    this.currentMode = mode;
+    // Show/hide back button
+    const back = document.getElementById('btnBack');
+    if (view === 'dashboard' || view === 'settings') {
+      back.style.display = 'none';
+    } else {
+      back.style.display = '';
+    }
+  }
+};
+
+/* ================================================
+   MODULE: Data
+   ================================================ */
+const Data = {
+  async loadToc() {
+    if (State.toc) return State.toc;
+    const r = await fetch('data/toc.json');
+    if (!r.ok) throw new Error('Could not load table of contents.');
+    State.toc = await r.json();
+    return State.toc;
+  },
+
+  async loadChapter(num) {
+    const key = `ch${num}`;
+    if (State.chapterData[key]) return State.chapterData[key];
+    const r = await fetch(`data/chapter-${String(num).padStart(2,'0')}.json`);
+    if (!r.ok) throw new Error(`Could not load chapter ${num}.`);
+    const data = await r.json();
+    State.chapterData[key] = data;
+    return data;
+  }
+};
+
+/* ================================================
+   MODULE: Progress
+   ================================================ */
+const Progress = {
+  getChapterProgress(chNum) {
+    return Storage.get(`ch${chNum}.progress`, {});
+  },
+
+  setFlashcardBucket(chNum, idx, bucket) {
+    Storage.set(`ch${chNum}.fc.${idx}`, bucket);
+  },
+
+  getFlashcardBucket(chNum, idx) {
+    return Storage.get(`ch${chNum}.fc.${idx}`, 1);
+  },
+
+  recordWeak(chNum, type, idx) {
+    const key = `ch${chNum}.weak`;
+    const list = Storage.get(key, []);
+    const entry = { type, idx };
+    if (!list.some(e => e.type === type && e.idx === idx)) {
+      list.push(entry);
+      Storage.set(key, list);
+    }
+  },
+
+  removeWeak(chNum, type, idx) {
+    const key = `ch${chNum}.weak`;
+    const list = Storage.get(key, []);
+    Storage.set(key, list.filter(e => !(e.type === type && e.idx === idx)));
+  },
+
+  getWeak(chNum) {
+    return Storage.get(`ch${chNum}.weak`, []);
+  },
+
+  getChapterPct(chNum) {
+    const d = Storage.get(`ch${chNum}`, {});
+    // rough completion: % of flashcards in bucket 3+
+    const fc = d.fc || {};
+    const total = Storage.get(`ch${chNum}.fcTotal`, 0);
+    if (!total) return 0;
+    const done = Object.values(fc).filter(b => b >= 3).length;
+    return Math.round((done / total) * 100);
+  },
+
+  setFcTotal(chNum, total) {
+    Storage.set(`ch${chNum}.fcTotal`, total);
+  },
+
+  getExamState(chNum) {
+    return Storage.get(`ch${chNum}.exam`, null);
+  },
+
+  saveExamState(chNum, state) {
+    Storage.set(`ch${chNum}.exam`, state);
+  },
+
+  clearExamState(chNum) {
+    Storage.set(`ch${chNum}.exam`, null);
+  },
+
+  clearAll() {
+    Storage.clear();
+  }
+};
+
+/* ================================================
+   MODULE: Render (DOM helpers)
+   ================================================ */
+const Render = {
+  app() { return document.getElementById('app'); },
+
+  show(html) {
+    const el = this.app();
+    el.innerHTML = html;
+    el.classList.add('animate-in');
+    setTimeout(() => el.classList.remove('animate-in'), 300);
+  },
+
+  toast(msg, dur = 2200) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('visible');
+    setTimeout(() => t.classList.remove('visible'), dur);
+  },
+
+  confirm(title, body, onConfirm, onCancel) {
+    const overlay = document.getElementById('modal-overlay');
+    overlay.innerHTML = `
+      <div class="modal-box pop-in">
+        <div class="modal-title">${title}</div>
+        <div class="modal-body">${body}</div>
+        <div class="modal-btn-row">
+          <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+          <button class="btn btn-danger" id="modal-confirm">Confirm</button>
+        </div>
+      </div>`;
+    overlay.classList.remove('hidden');
+    document.getElementById('modal-cancel').onclick = () => {
+      overlay.classList.add('hidden');
+      if (onCancel) onCancel();
+    };
+    document.getElementById('modal-confirm').onclick = () => {
+      overlay.classList.add('hidden');
+      onConfirm();
+    };
+  },
+
+  progressBar(pct, cls = '') {
+    return `<div class="study-progress-bar ${cls}"><div class="study-progress-fill" style="width:${pct}%"></div></div>`;
+  }
+};
+
+/* ================================================
+   MODULE: Dashboard
+   ================================================ */
+const Dashboard = {
+  async render() {
+    State.setView('dashboard');
+    document.getElementById('btnSettings').style.display = '';
+    const toc = await Data.loadToc();
+    const chaptersHtml = toc.chapters.map(ch => {
+      const pct = Progress.getChapterPct(ch.number);
+      if (ch.available) {
+        return `<div class="chapter-card" data-ch="${ch.number}">
+          <div class="ch-num">${ch.number}</div>
+          <div class="ch-info">
+            <div class="ch-title">${ch.title}</div>
+            <div class="ch-progress-bar"><div class="ch-progress-fill" style="width:${pct}%"></div></div>
+          </div>
+          <div class="ch-arrow">&#8250;</div>
+        </div>`;
+      } else {
+        return `<div class="chapter-card locked" data-ch="${ch.number}">
+          <div class="ch-num">${ch.number}</div>
+          <div class="ch-info">
+            <div class="ch-title">${ch.title}</div>
+            <div class="ch-progress-bar"><div class="ch-progress-fill" style="width:0%"></div></div>
+          </div>
+          <div class="ch-lock">🔒</div>
+        </div>`;
+      }
+    }).join('');
+
+    Render.show(`
+      <div class="dash-header">
+        <div class="dash-greeting">Investment Funds in Canada</div>
+        <div class="dash-title">Study Guide</div>
+      </div>
+      <div class="section-label">Chapters</div>
+      ${chaptersHtml}
+    `);
+
+    document.querySelectorAll('.chapter-card:not(.locked)').forEach(el => {
+      el.addEventListener('click', () => ModeSelect.render(parseInt(el.dataset.ch)));
+    });
+  }
+};
+
+/* ================================================
+   MODULE: ModeSelect
+   ================================================ */
+const ModeSelect = {
+  async render(chNum) {
+    State.setView('modeSelect', chNum);
+    const data = await Data.loadChapter(chNum);
+    const toc = await Data.loadToc();
+    const ch = toc.chapters.find(c => c.number === chNum);
+    Progress.setFcTotal(chNum, data.flashcards.length);
+
+    const hasExam = Progress.getExamState(chNum) !== null;
+    const weakCount = Progress.getWeak(chNum).length;
+
+    const modes = [
+      { id: 'flashcards', icon: '🃏', name: 'Flashcards', desc: 'Spaced repetition — master every term', ok: data.flashcards.length > 0 },
+      { id: 'matching', icon: '🎯', name: 'Matching', desc: 'Match terms to definitions', ok: data.flashcards.length >= 4 },
+      { id: 'fillinblank', icon: '✏️', name: 'Fill in the Blank', desc: 'Complete key sentences', ok: data.fillInTheBlank.length > 0 },
+      { id: 'truefalse', icon: '⚡', name: 'True / False', desc: 'Rapid-fire true/false statements', ok: data.trueFalse.length > 0 },
+      { id: 'speedround', icon: '⏱️', name: 'Speed Round', desc: '60 seconds — how many can you get?', ok: data.flashcards.length > 0 },
+      { id: 'quiz', icon: '📝', name: 'Chapter Quiz', desc: 'Up to 15 multiple-choice questions', ok: data.multipleChoice.length > 0 },
+      { id: 'exam', icon: '📋', name: 'Practice Exam', desc: hasExam ? 'Resume in progress' : '100 questions, 2.5 hours', ok: data.multipleChoice.length > 0 },
+      { id: 'weakspots', icon: '🎯', name: 'Weak Spots', desc: weakCount > 0 ? `${weakCount} items to review` : 'No weak spots yet!', ok: true },
+    ];
+
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum}</div>
+        <div class="mode-ch-title">${ch.title}</div>
+      </div>
+      <div class="mode-grid">
+        ${modes.map(m => `
+          <button class="mode-btn${m.ok ? '' : ' disabled'}" data-mode="${m.id}">
+            <div class="mode-icon">${m.icon}</div>
+            <div class="mode-name">${m.name}</div>
+            <div class="mode-desc">${m.desc}</div>
+          </button>`).join('')}
+      </div>
+    `);
+
+    document.querySelectorAll('.mode-btn:not(.disabled)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode;
+        App.launchMode(chNum, mode, data);
+      });
+    });
+  }
+};
+
+/* ================================================
+   MODULE: Flashcards
+   ================================================ */
+const Flashcards = {
+  chNum: null, cards: [], idx: 0, flipped: false,
+
+  render(chNum, data) {
+    State.setView('flashcards', chNum, 'flashcards');
+    this.chNum = chNum;
+    this.cards = shuffle([...data.flashcards].map((c, i) => ({ ...c, origIdx: i })));
+    this.idx = 0;
+    this.flipped = false;
+    this.showCard();
+  },
+
+  showCard() {
+    const card = this.cards[this.idx];
+    const bucket = Progress.getFlashcardBucket(this.chNum, card.origIdx);
+    const pct = Math.round(((this.idx) / this.cards.length) * 100);
+
+    Render.show(`
+      <div class="study-header">
+        <div class="study-mode-label">🃏 Flashcards</div>
+        <div class="study-progress-row">
+          ${Render.progressBar(pct)}
+          <div class="study-progress-text">${this.idx + 1} / ${this.cards.length}</div>
+        </div>
+      </div>
+      <div class="bucket-label">Bucket: <span>${bucket}</span> / 5</div>
+      <div class="flashcard-tap-hint">Tap card to flip</div>
+      <div class="flashcard-scene">
+        <div class="flashcard-card${this.flipped ? ' flipped' : ''}" id="fc-card">
+          <div class="flashcard-face flashcard-front">
+            <div class="flashcard-front-text">${card.front}</div>
+          </div>
+          <div class="flashcard-face flashcard-back">
+            <div class="flashcard-back-text">${card.back}</div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-action-row${this.flipped ? '' : ' hidden'}" id="fc-actions">
+        <button class="btn btn-danger fc-action-row" id="fc-no" style="flex:1;padding:14px;">Still Learning</button>
+        <button class="btn btn-success fc-action-row" id="fc-yes" style="flex:1;padding:14px;">Got It ✓</button>
+      </div>
+      <div class="btn-row" style="margin-top:10px;">
+        <button class="btn btn-secondary" id="fc-skip">Skip</button>
+        <button class="btn btn-secondary" id="fc-back-btn" ${this.idx === 0 ? 'disabled style="opacity:0.4"' : ''}>&#8592; Back</button>
+      </div>
+    `);
+
+    document.getElementById('fc-card').addEventListener('click', () => this.flip());
+    document.getElementById('fc-skip').addEventListener('click', () => this.next());
+    document.getElementById('fc-back-btn').addEventListener('click', () => {
+      if (this.idx > 0) { this.idx--; this.flipped = false; this.showCard(); }
+    });
+
+    const noBtn = document.getElementById('fc-no');
+    const yesBtn = document.getElementById('fc-yes');
+    if (noBtn) noBtn.addEventListener('click', () => this.respond(false));
+    if (yesBtn) yesBtn.addEventListener('click', () => this.respond(true));
+  },
+
+  flip() {
+    this.flipped = !this.flipped;
+    const fc = document.getElementById('fc-card');
+    if (fc) fc.classList.toggle('flipped', this.flipped);
+    const actions = document.getElementById('fc-actions');
+    if (actions) actions.classList.toggle('hidden', !this.flipped);
+  },
+
+  respond(gotIt) {
+    const card = this.cards[this.idx];
+    const curr = Progress.getFlashcardBucket(this.chNum, card.origIdx);
+    let next = gotIt ? Math.min(curr + 1, 5) : Math.max(curr - 1, 1);
+    Progress.setFlashcardBucket(this.chNum, card.origIdx, next);
+    if (!gotIt) Progress.recordWeak(this.chNum, 'flashcard', card.origIdx);
+    else if (next >= 3) Progress.removeWeak(this.chNum, 'flashcard', card.origIdx);
+    this.next();
+  },
+
+  next() {
+    if (this.idx < this.cards.length - 1) {
+      this.idx++;
+      this.flipped = false;
+      this.showCard();
+    } else {
+      this.showComplete();
+    }
+  },
+
+  showComplete() {
+    Render.show(`
+      <div class="end-screen">
+        <div class="end-icon">🎉</div>
+        <div class="end-title">Deck Complete!</div>
+        <div class="end-sub">You've reviewed all ${this.cards.length} flashcards.<br>Keep studying to move cards into higher buckets.</div>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg" id="fc-again">Study Again</button>
+          <button class="btn btn-secondary btn-lg" id="fc-home">Back to Chapter</button>
+        </div>
+      </div>
+    `);
+    document.getElementById('fc-again').addEventListener('click', () => { this.idx = 0; this.flipped = false; this.cards = shuffle(this.cards); this.showCard(); });
+    document.getElementById('fc-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+  }
+};
+
+/* ================================================
+   MODULE: Matching
+   ================================================ */
+const Matching = {
+  chNum: null, pairs: [], selected: null, matched: 0, startTime: null, timerEl: null, timerInterval: null,
+
+  render(chNum, data) {
+    State.setView('matching', chNum, 'matching');
+    this.chNum = chNum;
+    this.matched = 0;
+    this.selected = null;
+
+    const pool = shuffle([...data.flashcards]).slice(0, 8);
+    this.pairs = pool.map((c, i) => [
+      { id: `t${i}`, text: c.front, pairId: i, type: 'term' },
+      { id: `d${i}`, text: c.back.split('\n')[0].slice(0, 100), pairId: i, type: 'def' }
+    ]).flat();
+    this.pairs = shuffle(this.pairs);
+    this.startTime = Date.now();
+
+    this.draw();
+    this.timerInterval = setInterval(() => this.updateTimer(), 1000);
+  },
+
+  draw() {
+    const cardsHtml = this.pairs.map(p => `
+      <div class="match-card" data-id="${p.id}" data-pair="${p.pairId}">${escHtml(p.text)}</div>
+    `).join('');
+
+    Render.show(`
+      <div class="study-header">
+        <div class="study-mode-label">🎯 Matching</div>
+      </div>
+      <div class="match-timer" id="match-timer">0:00</div>
+      <div class="match-grid" id="match-grid">${cardsHtml}</div>
+    `);
+
+    document.querySelectorAll('.match-card').forEach(el => {
+      el.addEventListener('click', () => this.select(el));
+    });
+  },
+
+  updateTimer() {
+    const el = document.getElementById('match-timer');
+    if (!el) { clearInterval(this.timerInterval); return; }
+    const secs = Math.floor((Date.now() - this.startTime) / 1000);
+    el.textContent = `${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}`;
+  },
+
+  select(el) {
+    if (el.classList.contains('matched')) return;
+    if (this.selected && this.selected.dataset.id === el.dataset.id) {
+      el.classList.remove('selected');
+      this.selected = null;
+      return;
+    }
+
+    el.classList.add('selected');
+
+    if (!this.selected) {
+      this.selected = el;
+    } else {
+      const prev = this.selected;
+      if (prev.dataset.pair === el.dataset.pair) {
+        // Match!
+        [prev, el].forEach(e => { e.classList.remove('selected'); e.classList.add('matched'); });
+        this.matched++;
+        Render.toast('✓ Match!', 800);
+        if (this.matched === this.pairs.length / 2) {
+          clearInterval(this.timerInterval);
+          setTimeout(() => this.showComplete(), 400);
+        }
+      } else {
+        // Wrong
+        [prev, el].forEach(e => { e.classList.add('wrong', 'shake'); });
+        setTimeout(() => {
+          [prev, el].forEach(e => { e.classList.remove('wrong', 'shake', 'selected'); });
+        }, 700);
+      }
+      this.selected = null;
+    }
+  },
+
+  showComplete() {
+    clearInterval(this.timerInterval);
+    const secs = Math.floor((Date.now() - this.startTime) / 1000);
+    const timeStr = `${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}`;
+    Render.show(`
+      <div class="end-screen">
+        <div class="end-icon">🎯</div>
+        <div class="end-title">All Matched!</div>
+        <div class="end-sub">Completed in ${timeStr}. Great memory!</div>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg" id="match-again">Play Again</button>
+          <button class="btn btn-secondary btn-lg" id="match-home">Back to Chapter</button>
+        </div>
+      </div>
+    `);
+    document.getElementById('match-again').addEventListener('click', () => this.render(this.chNum, State.chapterData[`ch${this.chNum}`]));
+    document.getElementById('match-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+  }
+};
+
+/* ================================================
+   MODULE: FillInBlank
+   ================================================ */
+const FillBlank = {
+  chNum: null, items: [], idx: 0, answered: false,
+
+  render(chNum, data) {
+    State.setView('fillinblank', chNum, 'fillinblank');
+    this.chNum = chNum;
+    this.items = shuffle([...data.fillInTheBlank]);
+    this.idx = 0;
+    this.answered = false;
+    this.showQ();
+  },
+
+  showQ() {
+    const item = this.items[this.idx];
+    const pct = Math.round((this.idx / this.items.length) * 100);
+    const sentenceHtml = item.sentence.replace('___', '<span class="fib-blank">____</span>');
+
+    Render.show(`
+      <div class="study-header">
+        <div class="study-mode-label">✏️ Fill in the Blank</div>
+        <div class="study-progress-row">
+          ${Render.progressBar(pct)}
+          <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
+        </div>
+      </div>
+      <div class="fib-sentence">${sentenceHtml}</div>
+      ${item.hint ? `<div class="fib-hint">💡 Hint: ${item.hint}</div>` : ''}
+      <input class="fib-input" id="fib-input" type="text" placeholder="Type your answer…" autocomplete="off">
+      <div id="fib-result"></div>
+      <div class="btn-row" style="margin-top:14px;">
+        <button class="btn btn-primary" id="fib-check">Check Answer</button>
+        <button class="btn btn-secondary" id="fib-next" ${this.answered ? '' : 'style="display:none"'}>Next →</button>
+      </div>
+    `);
+
+    const input = document.getElementById('fib-input');
+    input.focus();
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('fib-check').click(); });
+
+    document.getElementById('fib-check').addEventListener('click', () => this.check());
+    document.getElementById('fib-next').addEventListener('click', () => this.next());
+  },
+
+  check() {
+    if (this.answered) return;
+    const item = this.items[this.idx];
+    const input = document.getElementById('fib-input');
+    const val = input.value.trim().toLowerCase();
+    const ans = item.answer.toLowerCase();
+    const correct = val === ans || ans.split('/').map(s=>s.trim()).includes(val);
+
+    this.answered = true;
+    input.classList.add(correct ? 'correct' : 'wrong');
+    input.disabled = true;
+
+    const result = document.getElementById('fib-result');
+    if (correct) {
+      result.innerHTML = `<div class="fib-answer">✓ Correct!</div>`;
+      Progress.removeWeak(this.chNum, 'fib', this.idx);
+    } else {
+      result.innerHTML = `<div class="fib-answer" style="color:var(--danger)">✗ The answer is: <strong>${item.answer}</strong></div>`;
+      Progress.recordWeak(this.chNum, 'fib', this.idx);
+    }
+
+    const nextBtn = document.getElementById('fib-next');
+    if (nextBtn) nextBtn.style.display = '';
+    document.getElementById('fib-check').style.display = 'none';
+  },
+
+  next() {
+    if (this.idx < this.items.length - 1) {
+      this.idx++;
+      this.answered = false;
+      this.showQ();
+    } else {
+      Render.show(`
+        <div class="end-screen">
+          <div class="end-icon">✏️</div>
+          <div class="end-title">All Done!</div>
+          <div class="end-sub">You completed all ${this.items.length} fill-in-the-blank questions.</div>
+          <div class="btn-row">
+            <button class="btn btn-primary btn-lg" id="fib-again">Try Again</button>
+            <button class="btn btn-secondary btn-lg" id="fib-home">Back to Chapter</button>
+          </div>
+        </div>
+      `);
+      document.getElementById('fib-again').addEventListener('click', () => this.render(this.chNum, State.chapterData[`ch${this.chNum}`]));
+      document.getElementById('fib-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+    }
+  }
+};
+
+/* ================================================
+   MODULE: TrueFalse
+   ================================================ */
+const TrueFalse = {
+  chNum: null, items: [], idx: 0, score: 0, answered: false,
+
+  render(chNum, data) {
+    State.setView('truefalse', chNum, 'truefalse');
+    this.chNum = chNum;
+    this.items = shuffle([...data.trueFalse]);
+    this.idx = 0;
+    this.score = 0;
+    this.answered = false;
+    this.showQ();
+  },
+
+  showQ() {
+    const item = this.items[this.idx];
+    const pct = Math.round((this.idx / this.items.length) * 100);
+
+    Render.show(`
+      <div class="study-header">
+        <div class="study-mode-label">⚡ True / False</div>
+        <div class="study-progress-row">
+          ${Render.progressBar(pct)}
+          <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
+        </div>
+      </div>
+      <div class="tf-score">Score: <span>${this.score}</span> / ${this.idx}</div>
+      <div class="tf-statement">${escHtml(item.statement)}</div>
+      <div class="tf-btn-row">
+        <button class="tf-btn tf-true" id="tf-true">✓ True</button>
+        <button class="tf-btn tf-false" id="tf-false">✗ False</button>
+      </div>
+      <div id="tf-explanation" class="hidden"></div>
+      <div class="btn-row" style="margin-top:14px;">
+        <button class="btn btn-secondary hidden" id="tf-next">Next →</button>
+      </div>
+    `);
+
+    document.getElementById('tf-true').addEventListener('click', () => this.respond(true));
+    document.getElementById('tf-false').addEventListener('click', () => this.respond(false));
+    document.getElementById('tf-next').addEventListener('click', () => this.next());
+  },
+
+  respond(choice) {
+    if (this.answered) return;
+    this.answered = true;
+    const item = this.items[this.idx];
+    const correct = choice === item.answer;
+    if (correct) this.score++;
+
+    ['tf-true','tf-false'].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.disabled = true;
+    });
+
+    const exp = document.getElementById('tf-explanation');
+    if (exp) {
+      exp.innerHTML = `<div class="explanation-box" style="margin-top:14px;">
+        <strong>${correct ? '✓ Correct!' : '✗ Incorrect'}</strong><br>${escHtml(item.explanation)}
+      </div>`;
+      exp.classList.remove('hidden');
+    }
+
+    if (!correct) Progress.recordWeak(this.chNum, 'tf', this.idx);
+    else Progress.removeWeak(this.chNum, 'tf', this.idx);
+
+    const nextBtn = document.getElementById('tf-next');
+    if (nextBtn) nextBtn.classList.remove('hidden');
+    this.answered = true;
+
+    this.next_ready = () => this.next();
+  },
+
+  next() {
+    if (this.idx < this.items.length - 1) {
+      this.idx++;
+      this.answered = false;
+      this.showQ();
+    } else {
+      const pct = Math.round((this.score / this.items.length) * 100);
+      Render.show(`
+        <div class="end-screen">
+          <div class="end-icon">${pct >= 70 ? '⚡' : '📖'}</div>
+          <div class="end-title">${pct >= 70 ? 'Great job!' : 'Keep studying!'}</div>
+          <div class="score-pct ${pct >= 70 ? 'score-pass' : 'score-fail'}">${pct}%</div>
+          <div class="end-sub">You got ${this.score} out of ${this.items.length} correct.</div>
+          <div class="btn-row">
+            <button class="btn btn-primary btn-lg" id="tf-again">Try Again</button>
+            <button class="btn btn-secondary btn-lg" id="tf-home">Back to Chapter</button>
+          </div>
+        </div>
+      `);
+      document.getElementById('tf-again').addEventListener('click', () => this.render(this.chNum, State.chapterData[`ch${this.chNum}`]));
+      document.getElementById('tf-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+    }
+  }
+};
+
+/* ================================================
+   MODULE: SpeedRound
+   ================================================ */
+const SpeedRound = {
+  chNum: null, cards: [], idx: 0, score: 0, timer: 60, interval: null, flipped: false,
+
+  render(chNum, data) {
+    State.setView('speedround', chNum, 'speedround');
+    this.chNum = chNum;
+    this.cards = shuffle([...data.flashcards]);
+    this.idx = 0;
+    this.score = 0;
+    this.timer = 60;
+    this.flipped = false;
+    this.showStart();
+  },
+
+  showStart() {
+    Render.show(`
+      <div class="end-screen">
+        <div class="end-icon">⏱️</div>
+        <div class="end-title">Speed Round</div>
+        <div class="end-sub">60 seconds. Flip each card — mark Got It or Still Learning as fast as you can!</div>
+        <button class="btn btn-primary btn-lg" id="speed-start">Start!</button>
+      </div>
+    `);
+    document.getElementById('speed-start').addEventListener('click', () => this.start());
+  },
+
+  start() {
+    this.showCard();
+    this.interval = setInterval(() => {
+      this.timer--;
+      const el = document.getElementById('speed-timer');
+      if (el) {
+        el.textContent = this.timer;
+        if (this.timer <= 10) el.classList.add('low');
+      }
+      if (this.timer <= 0) this.finish();
+    }, 1000);
+  },
+
+  showCard() {
+    if (this.idx >= this.cards.length) { this.finish(); return; }
+    const card = this.cards[this.idx];
+    this.flipped = false;
+    Render.show(`
+      <div class="speed-timer-ring"><div class="speed-time${this.timer <= 10 ? ' low' : ''}" id="speed-timer">${this.timer}</div></div>
+      <div class="speed-score-big">Score: <span>${this.score}</span></div>
+      <div class="speed-card" id="speed-card">${this.flipped ? escHtml(card.back) : escHtml(card.front)}</div>
+      <div class="speed-answer-row">
+        <button class="btn btn-secondary" id="speed-flip">Flip Card</button>
+        <button class="btn btn-danger" id="speed-no">✗</button>
+        <button class="btn btn-success" id="speed-yes">✓</button>
+      </div>
+    `);
+    document.getElementById('speed-flip').addEventListener('click', () => {
+      this.flipped = !this.flipped;
+      const c = document.getElementById('speed-card');
+      if (c) c.textContent = this.flipped ? card.back : card.front;
+    });
+    document.getElementById('speed-no').addEventListener('click', () => { this.idx++; this.showCard(); });
+    document.getElementById('speed-yes').addEventListener('click', () => { this.score++; this.idx++; this.showCard(); });
+  },
+
+  finish() {
+    clearInterval(this.interval);
+    Render.show(`
+      <div class="end-screen">
+        <div class="end-icon">⏱️</div>
+        <div class="end-title">Time's Up!</div>
+        <div class="score-pct score-pass">${this.score}</div>
+        <div class="end-sub">cards correct in 60 seconds!</div>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg" id="speed-again">Play Again</button>
+          <button class="btn btn-secondary btn-lg" id="speed-home">Back to Chapter</button>
+        </div>
+      </div>
+    `);
+    document.getElementById('speed-again').addEventListener('click', () => this.render(this.chNum, State.chapterData[`ch${this.chNum}`]));
+    document.getElementById('speed-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+  }
+};
+
+/* ================================================
+   MODULE: ChapterQuiz
+   ================================================ */
+const ChapterQuiz = {
+  chNum: null, questions: [], idx: 0, score: 0, answered: false, results: [],
+
+  render(chNum, data) {
+    State.setView('quiz', chNum, 'quiz');
+    this.chNum = chNum;
+    this.questions = shuffle([...data.multipleChoice]).slice(0, 15);
+    this.idx = 0;
+    this.score = 0;
+    this.answered = false;
+    this.results = [];
+    this.showQ();
+  },
+
+  showQ() {
+    const q = this.questions[this.idx];
+    const pct = Math.round((this.idx / this.questions.length) * 100);
+
+    Render.show(`
+      <div class="study-header">
+        <div class="quiz-header-row">
+          <div class="quiz-q-label">📝 Chapter Quiz — Q${this.idx + 1} of ${this.questions.length}</div>
+        </div>
+        <div class="study-progress-row">
+          ${Render.progressBar(pct)}
+        </div>
+      </div>
+      <div class="question-card"><div class="question-text">${escHtml(q.question)}</div></div>
+      <div class="options-list" id="options">
+        ${q.options.map((opt, i) => `
+          <button class="option-btn" data-idx="${i}">${String.fromCharCode(65+i)}. ${escHtml(opt)}</button>
+        `).join('')}
+      </div>
+      <div id="quiz-exp" style="margin-top:12px;"></div>
+      <div class="btn-row" style="margin-top:14px;">
+        <button class="btn btn-primary hidden" id="quiz-next">${this.idx < this.questions.length - 1 ? 'Next →' : 'See Results'}</button>
+      </div>
+    `);
+
+    document.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', () => this.answer(parseInt(btn.dataset.idx), q));
+    });
+    document.getElementById('quiz-next').addEventListener('click', () => this.next(q));
+  },
+
+  answer(choice, q) {
+    if (this.answered) return;
+    this.answered = true;
+    const correct = choice === q.answerIndex;
+    if (correct) this.score++;
+
+    this.results.push({ q, choice, correct });
+
+    document.querySelectorAll('.option-btn').forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.answerIndex) btn.classList.add('correct');
+      else if (i === choice && !correct) btn.classList.add('wrong');
+    });
+
+    const exp = document.getElementById('quiz-exp');
+    if (exp) {
+      exp.innerHTML = `<div class="explanation-box">${escHtml(q.explanation)}</div>`;
+    }
+
+    if (!correct) Progress.recordWeak(this.chNum, 'mc', this.questions.indexOf(q));
+    else Progress.removeWeak(this.chNum, 'mc', this.questions.indexOf(q));
+
+    const nextBtn = document.getElementById('quiz-next');
+    if (nextBtn) nextBtn.classList.remove('hidden');
+  },
+
+  next(q) {
+    if (this.idx < this.questions.length - 1) {
+      this.idx++;
+      this.answered = false;
+      this.showQ();
+    } else {
+      this.showResults();
+    }
+  },
+
+  showResults() {
+    const pct = Math.round((this.score / this.questions.length) * 100);
+    const pass = pct >= 60;
+    const reviewHtml = this.results.map((r, i) => `
+      <div class="review-item ${r.correct ? 'correct' : 'wrong'}">
+        <div class="review-q">${i+1}. ${escHtml(r.q.question)}</div>
+        <div class="review-a">
+          ${r.correct
+            ? `<span class="review-correct">✓ Correct</span>`
+            : `<span class="review-wrong">✗ You chose: ${r.q.options[r.choice]}</span><br>
+               <span class="review-correct">✓ Answer: ${r.q.options[r.q.answerIndex]}</span>`}
+        </div>
+      </div>
+    `).join('');
+
+    Render.show(`
+      <div class="score-card" style="margin-bottom:16px;">
+        <div class="score-pct ${pass ? 'score-pass' : 'score-fail'}">${pct}%</div>
+        <div class="score-label">${this.score} / ${this.questions.length} correct</div>
+        <div style="color:var(--grey-mid);font-size:0.85rem;">${pass ? '🎉 Great work!' : '📖 Keep studying and try again!'}</div>
+      </div>
+      <div class="btn-row" style="margin-bottom:20px;">
+        <button class="btn btn-primary" id="quiz-again">Try Again</button>
+        <button class="btn btn-secondary" id="quiz-home">Back to Chapter</button>
+      </div>
+      <div class="section-label">Question Review</div>
+      ${reviewHtml}
+    `);
+    document.getElementById('quiz-again').addEventListener('click', () => this.render(this.chNum, State.chapterData[`ch${this.chNum}`]));
+    document.getElementById('quiz-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+  }
+};
+
+/* ================================================
+   MODULE: PracticeExam
+   ================================================ */
+const PracticeExam = {
+  chNum: null, questions: [], idx: 0, score: 0, answered: false,
+  totalTime: 150 * 60, elapsed: 0, interval: null, userAnswers: [],
+
+  render(chNum, data) {
+    State.setView('exam', chNum, 'exam');
+    this.chNum = chNum;
+
+    const saved = Progress.getExamState(chNum);
+    if (saved) {
+      Render.show(`
+        <div class="end-screen">
+          <div class="end-icon">📋</div>
+          <div class="end-title">Resume Exam?</div>
+          <div class="end-sub">You have an exam in progress: Question ${saved.idx + 1} of ${saved.questions.length}.<br>Time elapsed: ${this.formatTime(saved.elapsed)}</div>
+          <div class="btn-row">
+            <button class="btn btn-primary btn-lg" id="exam-resume">Resume</button>
+            <button class="btn btn-danger" id="exam-new">Start Fresh</button>
+          </div>
+        </div>
+      `);
+      document.getElementById('exam-resume').addEventListener('click', () => this.resume(saved, data));
+      document.getElementById('exam-new').addEventListener('click', () => { Progress.clearExamState(chNum); this.startNew(chNum, data); });
+    } else {
+      Render.show(`
+        <div class="end-screen">
+          <div class="end-icon">📋</div>
+          <div class="end-title">Practice Exam</div>
+          <div class="end-sub">100 questions · 2 hours 30 minutes · 60% to pass<br><br>Your progress is saved automatically — you can pause and resume any time.</div>
+          <button class="btn btn-primary btn-lg" id="exam-start">Begin Exam</button>
+        </div>
+      `);
+      document.getElementById('exam-start').addEventListener('click', () => this.startNew(chNum, data));
+    }
+  },
+
+  startNew(chNum, data) {
+    this.chNum = chNum;
+    // Build 100Q pool — repeat MC items as needed
+    const mc = [...data.multipleChoice];
+    let pool = [];
+    while (pool.length < Math.min(100, mc.length * 5)) {
+      pool = pool.concat(shuffle([...mc]));
+    }
+    this.questions = shuffle(pool).slice(0, Math.min(100, pool.length));
+    this.idx = 0;
+    this.score = 0;
+    this.elapsed = 0;
+    this.userAnswers = new Array(this.questions.length).fill(null);
+    this.answered = false;
+    this.saveState();
+    this.startTimer();
+    this.showQ();
+  },
+
+  resume(saved, data) {
+    this.questions = saved.questions;
+    this.idx = saved.idx;
+    this.score = saved.score;
+    this.elapsed = saved.elapsed;
+    this.userAnswers = saved.userAnswers;
+    this.answered = saved.answered;
+    this.startTimer();
+    this.showQ();
+  },
+
+  startTimer() {
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.elapsed++;
+      const remaining = this.totalTime - this.elapsed;
+      const el = document.getElementById('exam-timer');
+      if (el) {
+        el.textContent = this.formatTime(remaining);
+        if (remaining < 300) el.classList.add('low');
+      }
+      if (remaining <= 0) this.submit();
+      if (this.elapsed % 30 === 0) this.saveState();
+    }, 1000);
+  },
+
+  formatTime(secs) {
+    const h = Math.floor(secs / 3600);
+    const m = Math.floor((secs % 3600) / 60);
+    const s = secs % 60;
+    if (h > 0) return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    return `${m}:${String(s).padStart(2,'0')}`;
+  },
+
+  saveState() {
+    Progress.saveExamState(this.chNum, {
+      questions: this.questions, idx: this.idx, score: this.score,
+      elapsed: this.elapsed, userAnswers: this.userAnswers, answered: this.answered
+    });
+  },
+
+  showQ() {
+    const q = this.questions[this.idx];
+    const remaining = this.totalTime - this.elapsed;
+    const pct = Math.round((this.idx / this.questions.length) * 100);
+    const prevAnswer = this.userAnswers[this.idx];
+    const wasAnswered = prevAnswer !== null;
+
+    Render.show(`
+      <div class="study-header">
+        <div class="exam-top">
+          <span>Q${this.idx + 1} of ${this.questions.length}</span>
+          <span class="quiz-timer${remaining < 300 ? ' low' : ''}" id="exam-timer">${this.formatTime(remaining)}</span>
+        </div>
+        ${Render.progressBar(pct)}
+      </div>
+      <div class="question-card"><div class="question-text">${escHtml(q.question)}</div></div>
+      <div class="options-list" id="options">
+        ${q.options.map((opt, i) => `
+          <button class="option-btn${wasAnswered && i === q.answerIndex ? ' correct' : ''}${wasAnswered && i === prevAnswer && prevAnswer !== q.answerIndex ? ' wrong' : ''}"
+            data-idx="${i}" ${wasAnswered ? 'disabled' : ''}>${String.fromCharCode(65+i)}. ${escHtml(opt)}</button>
+        `).join('')}
+      </div>
+      ${wasAnswered ? `<div class="explanation-box" style="margin-top:12px;">${escHtml(q.explanation)}</div>` : ''}
+      <div class="btn-row" style="margin-top:14px;">
+        <button class="btn btn-secondary" id="exam-pause">⏸ Pause & Save</button>
+        ${wasAnswered ? `<button class="btn btn-primary" id="exam-next">${this.idx < this.questions.length - 1 ? 'Next →' : 'Submit'}</button>` : ''}
+        ${this.idx === this.questions.length - 1 && wasAnswered ? '' : ''}
+      </div>
+    `);
+
+    if (!wasAnswered) {
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => this.answer(parseInt(btn.dataset.idx), q));
+      });
+    } else {
+      const nextBtn = document.getElementById('exam-next');
+      if (nextBtn) nextBtn.addEventListener('click', () => this.next());
+    }
+
+    document.getElementById('exam-pause').addEventListener('click', () => {
+      clearInterval(this.interval);
+      this.saveState();
+      Render.toast('Progress saved!');
+      ModeSelect.render(this.chNum);
+    });
+  },
+
+  answer(choice, q) {
+    if (this.userAnswers[this.idx] !== null) return;
+    const correct = choice === q.answerIndex;
+    if (correct) this.score++;
+    this.userAnswers[this.idx] = choice;
+    this.saveState();
+
+    document.querySelectorAll('.option-btn').forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.answerIndex) btn.classList.add('correct');
+      else if (i === choice && !correct) btn.classList.add('wrong');
+    });
+
+    const expHtml = document.createElement('div');
+    expHtml.className = 'explanation-box';
+    expHtml.style.marginTop = '12px';
+    expHtml.textContent = q.explanation;
+    document.getElementById('options').after(expHtml);
+
+    const btnRow = document.querySelector('.btn-row');
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.textContent = this.idx < this.questions.length - 1 ? 'Next →' : 'Submit';
+    nextBtn.addEventListener('click', () => this.next());
+    btnRow.appendChild(nextBtn);
+  },
+
+  next() {
+    if (this.idx < this.questions.length - 1) {
+      this.idx++;
+      this.showQ();
+    } else {
+      this.submit();
+    }
+  },
+
+  submit() {
+    clearInterval(this.interval);
+    Progress.clearExamState(this.chNum);
+    const answered = this.userAnswers.filter(a => a !== null).length;
+    const pct = Math.round((this.score / answered) * 100);
+    const pass = pct >= 60;
+    Render.show(`
+      <div class="score-card" style="margin-bottom:20px;">
+        <div class="score-pct ${pass ? 'score-pass' : 'score-fail'}">${pct}%</div>
+        <div class="score-label">${this.score} / ${answered} correct</div>
+        <div style="color:var(--grey-mid);font-size:0.9rem;margin-top:8px;">
+          ${pass ? '🎉 PASS — Great work!' : '📖 Keep studying — 60% to pass'}
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="exam-again">New Exam</button>
+        <button class="btn btn-secondary" id="exam-home">Back to Chapter</button>
+      </div>
+    `);
+    document.getElementById('exam-again').addEventListener('click', () => this.render(this.chNum, State.chapterData[`ch${this.chNum}`]));
+    document.getElementById('exam-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+  }
+};
+
+/* ================================================
+   MODULE: WeakSpots
+   ================================================ */
+const WeakSpots = {
+  chNum: null, items: [], idx: 0, streak: {},
+
+  async render(chNum) {
+    State.setView('weakspots', chNum, 'weakspots');
+    this.chNum = chNum;
+    const data = await Data.loadChapter(chNum);
+    const weak = Progress.getWeak(chNum);
+
+    if (weak.length === 0) {
+      Render.show(`
+        <div class="weak-empty">
+          <div class="weak-empty-icon">🌟</div>
+          <div style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">No Weak Spots!</div>
+          <div>Complete other study modes to identify areas to work on.</div>
+        </div>
+        <div class="btn-row" style="margin-top:20px;">
+          <button class="btn btn-secondary" id="ws-home">Back to Chapter</button>
+        </div>
+      `);
+      document.getElementById('ws-home').addEventListener('click', () => ModeSelect.render(chNum));
+      return;
+    }
+
+    // Build mixed deck from weak items
+    this.items = weak.map(w => {
+      if (w.type === 'flashcard') {
+        const c = data.flashcards[w.idx];
+        return { type: 'flashcard', front: c.front, back: c.back, weakRef: w };
+      } else if (w.type === 'tf') {
+        const c = data.trueFalse[w.idx];
+        return { type: 'tf', statement: c.statement, answer: c.answer, explanation: c.explanation, weakRef: w };
+      } else if (w.type === 'mc') {
+        const c = data.multipleChoice[w.idx];
+        return { type: 'mc', ...c, weakRef: w };
+      }
+      return null;
+    }).filter(Boolean);
+
+    this.items = shuffle(this.items);
+    this.idx = 0;
+    this.streak = {};
+    this.showItem();
+  },
+
+  showItem() {
+    const item = this.items[this.idx];
+    const pct = Math.round((this.idx / this.items.length) * 100);
+
+    if (item.type === 'flashcard') {
+      Render.show(`
+        <div class="study-header">
+          <div class="study-mode-label">🎯 Weak Spots</div>
+          <div class="study-progress-row">
+            ${Render.progressBar(pct)}
+            <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
+          </div>
+        </div>
+        <div class="flashcard-tap-hint">Tap card to flip</div>
+        <div class="flashcard-scene">
+          <div class="flashcard-card" id="ws-card">
+            <div class="flashcard-face flashcard-front"><div class="flashcard-front-text">${escHtml(item.front)}</div></div>
+            <div class="flashcard-face flashcard-back"><div class="flashcard-back-text">${escHtml(item.back)}</div></div>
+          </div>
+        </div>
+        <div class="fc-action-row hidden" id="ws-actions">
+          <button class="btn btn-danger" id="ws-no" style="flex:1;padding:14px;">Still Learning</button>
+          <button class="btn btn-success" id="ws-yes" style="flex:1;padding:14px;">Got It ✓</button>
+        </div>
+      `);
+      let flipped = false;
+      document.getElementById('ws-card').addEventListener('click', () => {
+        flipped = !flipped;
+        document.getElementById('ws-card').classList.toggle('flipped', flipped);
+        document.getElementById('ws-actions').classList.toggle('hidden', !flipped);
+      });
+      document.getElementById('ws-no').addEventListener('click', () => this.respond(false, item));
+      document.getElementById('ws-yes').addEventListener('click', () => this.respond(true, item));
+
+    } else if (item.type === 'tf') {
+      Render.show(`
+        <div class="study-header">
+          <div class="study-mode-label">🎯 Weak Spots</div>
+          <div class="study-progress-row">
+            ${Render.progressBar(pct)}
+            <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
+          </div>
+        </div>
+        <div class="tf-statement">${escHtml(item.statement)}</div>
+        <div class="tf-btn-row">
+          <button class="tf-btn tf-true" id="ws-true">✓ True</button>
+          <button class="tf-btn tf-false" id="ws-false">✗ False</button>
+        </div>
+        <div id="ws-tf-exp"></div>
+        <div class="btn-row hidden" style="margin-top:14px;"><button class="btn btn-primary" id="ws-next">Next →</button></div>
+      `);
+      const tfResp = (choice) => {
+        const correct = choice === item.answer;
+        ['ws-true','ws-false'].forEach(id => { const b = document.getElementById(id); if(b) b.disabled = true; });
+        document.getElementById('ws-tf-exp').innerHTML = `<div class="explanation-box" style="margin-top:14px;"><strong>${correct?'✓ Correct!':'✗ Incorrect'}</strong><br>${escHtml(item.explanation)}</div>`;
+        document.querySelector('.btn-row').classList.remove('hidden');
+        document.getElementById('ws-next').addEventListener('click', () => this.respond(correct, item));
+      };
+      document.getElementById('ws-true').addEventListener('click', () => tfResp(true));
+      document.getElementById('ws-false').addEventListener('click', () => tfResp(false));
+
+    } else if (item.type === 'mc') {
+      Render.show(`
+        <div class="study-header">
+          <div class="study-mode-label">🎯 Weak Spots</div>
+          <div class="study-progress-row">
+            ${Render.progressBar(pct)}
+            <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
+          </div>
+        </div>
+        <div class="question-card"><div class="question-text">${escHtml(item.question)}</div></div>
+        <div class="options-list" id="ws-options">
+          ${item.options.map((opt, i) => `<button class="option-btn" data-idx="${i}">${String.fromCharCode(65+i)}. ${escHtml(opt)}</button>`).join('')}
+        </div>
+        <div id="ws-exp"></div>
+        <div class="btn-row hidden" style="margin-top:14px;"><button class="btn btn-primary" id="ws-mc-next">Next →</button></div>
+      `);
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const choice = parseInt(btn.dataset.idx);
+          const correct = choice === item.answerIndex;
+          document.querySelectorAll('.option-btn').forEach((b,i) => {
+            b.disabled = true;
+            if (i === item.answerIndex) b.classList.add('correct');
+            else if (i === choice && !correct) b.classList.add('wrong');
+          });
+          document.getElementById('ws-exp').innerHTML = `<div class="explanation-box" style="margin-top:12px;">${escHtml(item.explanation)}</div>`;
+          document.querySelector('.btn-row').classList.remove('hidden');
+          document.getElementById('ws-mc-next').addEventListener('click', () => this.respond(correct, item));
+        });
+      });
+    }
+  },
+
+  respond(correct, item) {
+    const key = `${item.weakRef.type}-${item.weakRef.idx}`;
+    if (!this.streak[key]) this.streak[key] = 0;
+    if (correct) {
+      this.streak[key]++;
+      if (this.streak[key] >= 3) {
+        Progress.removeWeak(this.chNum, item.weakRef.type, item.weakRef.idx);
+        Render.toast('🌟 Graduated from weak spots!');
+      }
+    } else {
+      this.streak[key] = 0;
+    }
+
+    if (this.idx < this.items.length - 1) {
+      this.idx++;
+      this.showItem();
+    } else {
+      Render.show(`
+        <div class="end-screen">
+          <div class="end-icon">🎯</div>
+          <div class="end-title">Weak Spots Done!</div>
+          <div class="end-sub">Keep reviewing until all items graduate (3 correct in a row).</div>
+          <div class="btn-row">
+            <button class="btn btn-primary btn-lg" id="ws-again">Go Again</button>
+            <button class="btn btn-secondary btn-lg" id="ws-home">Back to Chapter</button>
+          </div>
+        </div>
+      `);
+      document.getElementById('ws-again').addEventListener('click', () => this.render(this.chNum));
+      document.getElementById('ws-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+    }
+  }
+};
+
+/* ================================================
+   MODULE: Settings
+   ================================================ */
+const Settings = {
+  render() {
+    State.setView('settings');
+    document.getElementById('btnSettings').style.display = 'none';
+    Render.show(`
+      <div class="dash-header">
+        <div class="dash-title">Settings</div>
+      </div>
+      <div class="settings-panel">
+        <div class="settings-item" id="set-clear">
+          <div class="settings-item-text">
+            <div class="label">Clear All Progress</div>
+            <div class="desc">Reset flashcard buckets, scores, and weak spots</div>
+          </div>
+          <div class="settings-arrow">&#8250;</div>
+        </div>
+      </div>
+      <div class="about-box">
+        <div class="logo">IFC Study Guide</div>
+        <div class="sub">Investment Funds in Canada<br>Canadian Securities Institute<br><br>Study smarter. Pass with confidence.</div>
+      </div>
+    `);
+
+    document.getElementById('set-clear').addEventListener('click', () => {
+      Render.confirm(
+        'Clear All Progress?',
+        'This will reset all flashcard buckets, quiz scores, and weak spots across all chapters. This cannot be undone.',
+        () => {
+          Progress.clearAll();
+          Render.toast('Progress cleared.');
+          Dashboard.render();
+        }
+      );
+    });
+  }
+};
+
+/* ================================================
+   MODULE: App (init + routing)
+   ================================================ */
+const App = {
+  async init() {
+    document.getElementById('btnBack').addEventListener('click', () => this.goBack());
+    document.getElementById('btnSettings').addEventListener('click', () => Settings.render());
+    await Dashboard.render();
+  },
+
+  goBack() {
+    const v = State.currentView;
+    const ch = State.currentChapter;
+    if (v === 'settings') {
+      Dashboard.render();
+    } else if (v === 'dashboard') {
+      // already home
+    } else if (v === 'modeSelect') {
+      Dashboard.render();
+    } else if (ch) {
+      // From any study mode, go back to mode select
+      ModeSelect.render(ch);
+    } else {
+      Dashboard.render();
+    }
+  },
+
+  launchMode(chNum, mode, data) {
+    switch (mode) {
+      case 'flashcards': Flashcards.render(chNum, data); break;
+      case 'matching': Matching.render(chNum, data); break;
+      case 'fillinblank': FillBlank.render(chNum, data); break;
+      case 'truefalse': TrueFalse.render(chNum, data); break;
+      case 'speedround': SpeedRound.render(chNum, data); break;
+      case 'quiz': ChapterQuiz.render(chNum, data); break;
+      case 'exam': PracticeExam.render(chNum, data); break;
+      case 'weakspots': WeakSpots.render(chNum); break;
+    }
+  }
+};
+
+/* ================================================
+   UTILS
+   ================================================ */
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function escHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/* ================================================
+   BOOT
+   ================================================ */
+App.init().catch(err => {
+  document.getElementById('app').innerHTML = `
+    <div style="text-align:center;padding:40px 20px;color:var(--grey-mid);">
+      <div style="font-size:2rem;margin-bottom:12px;">⚠️</div>
+      <div style="font-size:1rem;">Could not load study guide.<br><br>
+      <em>${err.message}</em><br><br>
+      Make sure you're opening this via a local server or GitHub Pages — not directly from a file.</div>
+    </div>`;
+});
+</script>
+</body>
+</html>

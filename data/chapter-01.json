@@ -1,0 +1,366 @@
+{
+  "chapter": 1,
+  "title": "The Role of the Mutual Fund Sales Representative",
+  "flashcards": [
+    {
+      "front": "What is a mutual fund?",
+      "back": "An investment vehicle that pools contributions from many investors and invests those proceeds into a portfolio of securities, offering professional management, diversification, and liquidity."
+    },
+    {
+      "front": "What are the six components of Know Your Client (KYC)?",
+      "back": "1. Personal circumstances (age, family status)\n2. Financial circumstances (income, net worth)\n3. Investment needs and objectives\n4. Attitude toward risk and capacity for risk\n5. Investment knowledge\n6. Investment time horizon"
+    },
+    {
+      "front": "What is suitability?",
+      "back": "The requirement that any investment recommended to a client must be appropriate for that specific client based on their individual KYC information — their circumstances, objectives, risk tolerance, and time horizon."
+    },
+    {
+      "front": "What are the three types of responsibility for a mutual fund sales representative?",
+      "back": "1. Legal responsibility – ensuring investments recommended are suitable for the client\n2. Ethical responsibility – placing client needs before your own needs or your dealer's\n3. Professional responsibility – maintaining adequate records of suitability decisions and good business practices"
+    },
+    {
+      "front": "What is a fund facts document?",
+      "back": "A short, plain-language document containing key information about a mutual fund (risks, costs, past performance). Required by regulation to be delivered to clients before or at the point of sale."
+    },
+    {
+      "front": "What is a prospectus?",
+      "back": "A legal document that provides detailed information about a mutual fund, including its investment objectives, risks, costs, and past performance. More detailed than the fund facts document."
+    },
+    {
+      "front": "What is compliance?",
+      "back": "Following the rules and regulations that govern the mutual funds industry. Compliance is mandatory — failure to comply can result in regulatory sanctions or loss of licence."
+    },
+    {
+      "front": "What is the difference between ethics and ethical conduct?",
+      "back": "Ethics: the standards of behavior we believe are morally right.\nEthical conduct: actually following a course of action that is in the best interests of your client — putting their interests first."
+    },
+    {
+      "front": "How did Canadian mutual fund assets under management grow over time?",
+      "back": "1930s: Three mutual funds open to investors in Canada\n1980s: ~$500 million AUM; chartered banks enter the industry\n2000s: ~$400 billion AUM\n2020s: Approaching $2 trillion AUM"
+    },
+    {
+      "front": "What is net worth?",
+      "back": "Net worth = Total Assets − Total Liabilities. It represents what a person actually owns after subtracting everything they owe. It is one of the key financial circumstances collected in the KYC process."
+    },
+    {
+      "front": "What is volatility?",
+      "back": "The degree of variation in the price or value of an investment over time. Higher volatility means greater price swings and greater risk. It is an important concept when assessing a client's attitude toward risk."
+    },
+    {
+      "front": "What does Know Your Product (KYP) mean?",
+      "back": "A regulatory obligation requiring a mutual fund sales representative to understand all the characteristics of the funds they are recommending — including the fund's objectives, risks, fees, and suitability for different client types."
+    },
+    {
+      "front": "How does a mutual fund sales representative's role differ from a financial planner?",
+      "back": "A mutual fund sales representative focuses on mutual fund products and the client relationship. A financial planner provides comprehensive financial planning (tax, estate, insurance, retirement). When a client needs planning beyond the rep's scope, the rep refers them to a qualified financial planner."
+    },
+    {
+      "front": "What is disclosure in the context of mutual fund sales?",
+      "back": "The obligation to provide clients with relevant information about a product — including its risks, costs, and any conflicts of interest — so they can make an informed investment decision."
+    },
+    {
+      "front": "What were the key drivers of mutual fund industry growth in Canada in the 1980s and 1990s?",
+      "back": "1. Declining interest rates (making bank deposits less attractive)\n2. Chartered banks entering the mutual fund industry\n3. A proliferation of choice — many new funds available\n4. Growing public awareness of the stock market and investing"
+    },
+    {
+      "front": "What is the MFDA / CIRO?",
+      "back": "The Mutual Fund Dealers Association of Canada (MFDA) was the self-regulatory organization for mutual fund dealers. As of January 1, 2023, the MFDA amalgamated with IIROC to form the Canadian Investment Regulatory Organization (CIRO), which now oversees mutual fund dealers."
+    },
+    {
+      "front": "What rewards come from providing excellent client service?",
+      "back": "1. Clients refer friends and family to you (new business)\n2. Clients buy additional related products and services (cross-selling)\n3. Clients return for repeat business (retention)"
+    }
+  ],
+  "fillInTheBlank": [
+    {
+      "sentence": "A mutual fund pools contributions from many investors and invests into a portfolio of securities, offering professional management, diversification, and ___.",
+      "answer": "liquidity",
+      "hint": "Think about how easily you can access your money."
+    },
+    {
+      "sentence": "The six components of Know Your Client include personal circumstances, financial circumstances, investment needs and objectives, attitude toward risk, investment knowledge, and investment ___.",
+      "answer": "time horizon",
+      "hint": "Think about how long the client has to reach their goals."
+    },
+    {
+      "sentence": "Placing client interests ahead of your own needs and those of your dealer is called ___ responsibility.",
+      "answer": "ethical",
+      "hint": "One of the three types of responsibility."
+    },
+    {
+      "sentence": "The requirement that any investment you recommend must be appropriate for that specific client is called ___.",
+      "answer": "suitability",
+      "hint": "Does this investment suit this particular client?"
+    },
+    {
+      "sentence": "Following the rules and regulations that govern the mutual funds industry is called ___.",
+      "answer": "compliance",
+      "hint": "It starts with 'C' and is mandatory."
+    },
+    {
+      "sentence": "A ___ is a short, plain-language document containing key information about a mutual fund, required by regulation to be provided to clients before or at the point of sale.",
+      "answer": "fund facts",
+      "hint": "Two words — it gives you the facts about the fund."
+    },
+    {
+      "sentence": "Net worth is calculated by subtracting total ___ from total assets.",
+      "answer": "liabilities",
+      "hint": "What you owe."
+    },
+    {
+      "sentence": "In Canada, assets under management in the mutual fund industry were approaching $___ trillion in the 2020s.",
+      "answer": "2",
+      "hint": "A large round number — think about how much the industry grew."
+    },
+    {
+      "sentence": "The standards of behavior that we believe are morally right are called ___.",
+      "answer": "ethics",
+      "hint": "A single word — the foundation of professional conduct."
+    },
+    {
+      "sentence": "The obligation to provide clients with relevant information about a product so they can make an informed decision is called ___.",
+      "answer": "disclosure",
+      "hint": "You must reveal key information to the client."
+    }
+  ],
+  "trueFalse": [
+    {
+      "statement": "A mutual fund sales representative must place their own financial interests above those of their clients.",
+      "answer": false,
+      "explanation": "False. Ethical responsibility requires that client interests are always placed ahead of the representative's own needs and those of the dealer."
+    },
+    {
+      "statement": "The fund facts document is required by regulation to be delivered to clients before or at the point of sale.",
+      "answer": true,
+      "explanation": "True. The fund facts is a regulatory requirement. Clients must receive it before or when they purchase the fund so they can make an informed decision."
+    },
+    {
+      "statement": "In Canada, individuals who sell mutual funds are required to be licensed.",
+      "answer": true,
+      "explanation": "True. Anyone selling financial products such as mutual funds in Canada must be licensed. Licensing ensures representatives are qualified to deal with clients."
+    },
+    {
+      "statement": "A mutual fund sales representative can provide the same comprehensive financial planning services as a certified financial planner.",
+      "answer": false,
+      "explanation": "False. A mutual fund sales representative focuses on mutual fund products. When clients need comprehensive financial planning (tax, estate, insurance), the rep should refer them to a qualified financial planner."
+    },
+    {
+      "statement": "Ethical conduct means following a course of action that is in the best interests of your client.",
+      "answer": true,
+      "explanation": "True. Ethical conduct goes beyond following rules — it means actively choosing to act in your client's best interests, even when no one is watching."
+    },
+    {
+      "statement": "Net worth is calculated by adding a client's total assets and total liabilities together.",
+      "answer": false,
+      "explanation": "False. Net worth = Total Assets MINUS Total Liabilities. It represents what a person truly owns after all debts are subtracted."
+    },
+    {
+      "statement": "Know Your Product means understanding all the characteristics of the mutual funds you are recommending to clients.",
+      "answer": true,
+      "explanation": "True. KYP requires representatives to know the investment objectives, risks, fees, and suitability profile of every fund they recommend."
+    },
+    {
+      "statement": "Canadian chartered banks began entering the mutual fund industry in the 1960s.",
+      "answer": false,
+      "explanation": "False. Chartered banks entered the mutual fund industry in the mid-1980s, which was one of the key drivers of industry growth during that decade."
+    },
+    {
+      "statement": "The six components of KYC include attitude toward risk as one of the six items.",
+      "answer": true,
+      "explanation": "True. The six KYC components are: personal circumstances, financial circumstances, investment needs and objectives, attitude toward risk and capacity for risk, investment knowledge, and time horizon."
+    },
+    {
+      "statement": "Providing excellent client service leads to repeat business and client referrals.",
+      "answer": true,
+      "explanation": "True. Happy clients come back for repeat business, refer friends and family, and buy additional products — making excellent client service central to a successful practice."
+    },
+    {
+      "statement": "Compliance is optional for mutual fund sales representatives who already follow ethical standards.",
+      "answer": false,
+      "explanation": "False. Compliance with regulations is mandatory for all mutual fund sales representatives, regardless of their personal ethical standards. Following the rules is the legal baseline."
+    },
+    {
+      "statement": "A prospectus provides more detailed information about a mutual fund than the fund facts document.",
+      "answer": true,
+      "explanation": "True. The prospectus is a comprehensive legal document. The fund facts is a shorter, plain-language summary designed to be more accessible to everyday investors."
+    }
+  ],
+  "multipleChoice": [
+    {
+      "question": "Which of the following best describes a mutual fund?",
+      "options": [
+        "A single stock investment in one company",
+        "An investment vehicle that pools money from many investors into a diversified portfolio of securities",
+        "A guaranteed investment certificate offered by a bank",
+        "A personal savings account with a fixed interest rate"
+      ],
+      "answerIndex": 1,
+      "explanation": "A mutual fund pools contributions from many investors and invests those proceeds into a portfolio of securities. This provides professional management, diversification, and liquidity — benefits not available with a single stock, GIC, or savings account."
+    },
+    {
+      "question": "What are the three types of responsibility for a mutual fund sales representative?",
+      "options": [
+        "Legal, personal, and financial",
+        "Ethical, personal, and compliance",
+        "Legal, ethical, and professional",
+        "Professional, regulatory, and social"
+      ],
+      "answerIndex": 2,
+      "explanation": "The three types of responsibility are Legal (ensuring suitability), Ethical (placing client needs first), and Professional (maintaining records and good business practices)."
+    },
+    {
+      "question": "How many components make up the Know Your Client (KYC) requirement?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answerIndex": 2,
+      "explanation": "There are 6 KYC components: personal circumstances, financial circumstances, investment needs and objectives, attitude toward risk, investment knowledge, and investment time horizon."
+    },
+    {
+      "question": "When must the fund facts document be provided to a client?",
+      "options": [
+        "Only if the client requests it",
+        "Within 30 days after purchase",
+        "After the investment is confirmed",
+        "Before or at the point of sale"
+      ],
+      "answerIndex": 3,
+      "explanation": "Regulation requires the fund facts to be delivered before or at the point of sale so clients have the information they need to make an informed decision before committing."
+    },
+    {
+      "question": "Which of the following best describes 'suitability'?",
+      "options": [
+        "Ensuring the fund has the highest possible return",
+        "Ensuring any investment recommended is appropriate for that specific client",
+        "Ensuring the client is satisfied with the price they paid",
+        "Ensuring all compliance paperwork is filed on time"
+      ],
+      "answerIndex": 1,
+      "explanation": "Suitability means the investment must be right for that particular client — based on their KYC profile including their circumstances, risk tolerance, knowledge, and time horizon."
+    },
+    {
+      "question": "In which decade did Canadian chartered banks begin entering the mutual fund industry?",
+      "options": [
+        "1960s",
+        "1970s",
+        "1980s",
+        "1990s"
+      ],
+      "answerIndex": 2,
+      "explanation": "Chartered banks entered the mutual fund industry mid-decade in the 1980s. This was a major driver of industry growth, along with declining interest rates and a greater proliferation of fund choices."
+    },
+    {
+      "question": "What does 'ethical conduct' mean for a mutual fund sales representative?",
+      "options": [
+        "Following only the minimum legal requirements",
+        "Acting in the best interests of your employer and dealer",
+        "Following a course of action that is in the best interests of your client",
+        "Maximizing sales commissions while staying within legal limits"
+      ],
+      "answerIndex": 2,
+      "explanation": "Ethical conduct means placing your client's best interests first — going beyond the letter of the law to do what is genuinely right for your client."
+    },
+    {
+      "question": "Which of the following is NOT one of the six KYC components?",
+      "options": [
+        "Investment time horizon",
+        "Attitude toward risk and capacity for risk",
+        "Annual income tax rate",
+        "Investment knowledge"
+      ],
+      "answerIndex": 2,
+      "explanation": "The six KYC components are: personal circumstances, financial circumstances, investment needs and objectives, attitude toward risk, investment knowledge, and time horizon. Annual income tax rate is not one of the six defined components, though overall financial circumstances (which includes income) is."
+    },
+    {
+      "question": "Approximately how much did Canadian mutual fund assets under management reach in the 2020s?",
+      "options": [
+        "$500 million",
+        "$400 billion",
+        "Approaching $2 trillion",
+        "$20 trillion"
+      ],
+      "answerIndex": 2,
+      "explanation": "By the 2020s, Canadian mutual fund assets under management were approaching $2 trillion — a remarkable growth from $500 million in the 1980s and $400 billion in the 2000s."
+    },
+    {
+      "question": "How does the role of a mutual fund sales representative differ from that of a financial planner?",
+      "options": [
+        "There is no difference — both roles are identical",
+        "A mutual fund sales rep focuses on mutual fund products; a financial planner provides comprehensive financial planning across tax, estate, insurance, and investments",
+        "A financial planner can only recommend mutual funds; a sales rep can recommend any investment",
+        "A mutual fund sales rep earns a higher income than a financial planner"
+      ],
+      "answerIndex": 1,
+      "explanation": "A mutual fund sales representative specializes in mutual fund products and the client relationship. When clients need comprehensive planning (tax, estate, insurance), the rep should refer them to a qualified financial planner."
+    },
+    {
+      "question": "Which of the following best describes 'professional responsibility' for a mutual fund sales representative?",
+      "options": [
+        "Being friendly and approachable with all clients",
+        "Selling the highest number of mutual funds each month",
+        "Maintaining adequate evidence of suitability decisions and good business practices",
+        "Taking continuing education courses only when mandated"
+      ],
+      "answerIndex": 2,
+      "explanation": "Professional responsibility involves maintaining proper records of suitability decisions, keeping client files current, and upholding good business practices — the administrative backbone of ethical sales practice."
+    },
+    {
+      "question": "What is the primary purpose of the fund facts document?",
+      "options": [
+        "To provide detailed legal disclosures for regulators",
+        "To outline the sales representative's compensation structure",
+        "To give clients a short, plain-language summary of key mutual fund information",
+        "To document the client's investment objectives and KYC information"
+      ],
+      "answerIndex": 2,
+      "explanation": "The fund facts is designed for clients — it presents key information about a mutual fund (objectives, risks, costs, past performance) in plain language so investors can make informed decisions quickly."
+    },
+    {
+      "question": "What is net worth?",
+      "options": [
+        "A client's total annual employment income",
+        "A client's total assets minus total liabilities",
+        "The current market value of a client's investment portfolio only",
+        "A client's annual savings after expenses"
+      ],
+      "answerIndex": 1,
+      "explanation": "Net worth = Total Assets − Total Liabilities. It represents what a person truly 'owns' after all debts are accounted for, and is a critical piece of KYC financial information."
+    },
+    {
+      "question": "Which of the following is a direct reward for providing excellent client service?",
+      "options": [
+        "Reduced regulatory requirements from CIRO",
+        "Lower compliance obligations from your dealer",
+        "Clients referring friends and family to you",
+        "Guaranteed higher returns on recommended funds"
+      ],
+      "answerIndex": 2,
+      "explanation": "Excellent client service generates word-of-mouth referrals — one of the most powerful sources of new business. Satisfied clients also return for repeat business and purchase additional products."
+    },
+    {
+      "question": "What is the CIRO (formerly MFDA)?",
+      "options": [
+        "The federal government department that regulates mutual funds",
+        "The self-regulatory organization that oversees mutual fund dealers in Canada",
+        "The association of mutual fund investors in Canada",
+        "The department within a bank that manages mutual fund sales"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Canadian Investment Regulatory Organization (CIRO) — which absorbed the former MFDA — is the self-regulatory organization that oversees mutual fund dealers and their representatives across Canada."
+    },
+    {
+      "question": "Why is providing excellent client service considered the most critical aspect of a mutual fund sales representative's job?",
+      "options": [
+        "Because it is the only legal requirement for keeping a licence",
+        "Because the mutual fund industry is not regulated, so service is the only differentiator",
+        "Because understanding and meeting client needs protects their interests and builds a sustainable, trust-based practice",
+        "Because fund performance is unpredictable, so service replaces the need to know products"
+      ],
+      "answerIndex": 2,
+      "explanation": "Excellent client service — which means fully understanding client needs and identifying the right solutions — protects clients' interests, builds repeat business, generates referrals, and is the foundation of a long-term, ethical practice."
+    }
+  ]
+}
