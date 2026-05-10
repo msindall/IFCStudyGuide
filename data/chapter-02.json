@@ -1,0 +1,400 @@
+{
+  "chapter": 2,
+  "title": "Overview of the Canadian Financial Marketplace",
+  "flashcards": [
+    {
+      "front": "What is capital?",
+      "back": "Capital is available and investable wealth — real estate, stocks, bonds, and money — that is used to enhance the economic growth prospects of an economy. Capital represents the invested savings of individuals, corporations, governments, and other organizations. It is in short supply and is arguably the world's most important commodity."
+    },
+    {
+      "front": "What are the three characteristics of capital?",
+      "back": "1. Mobile — capital moves in or out of countries or localities in anticipation of changes in taxation, exchange policy, trade barriers, and government attitudes.\n2. Sensitive to its environment — capital attempts to settle in countries where government is stable, economic activity is not over-regulated, and the investment climate is hospitable.\n3. Scarce — capital is scarce worldwide and is in great demand everywhere."
+    },
+    {
+      "front": "What are the three types of investors who are sources of capital?",
+      "back": "1. Retail investors — individuals who buy and sell securities for their own personal accounts, not for another company or organization.\n2. Institutional investors — organizations (pension funds, mutual funds) that trade large volumes of securities and typically have a steady flow of funds to invest.\n3. Foreign investors — also a significant source of investment capital; Canada has traditionally relied on savings for both direct plant/equipment investment and portfolio investment in Canadian securities."
+    },
+    {
+      "front": "Who are the users of capital?",
+      "back": "Users of capital are individuals, businesses, and governments — both Canadian and foreign.\n• Individuals: finance housing, consumer durables, and other consumption; obtain capital through personal loans, mortgages, and charge accounts.\n• Businesses: require capital for day-to-day operations, plant/equipment, and expansion; raised internally (profits) or through financial markets (bonds, shares).\n• Governments (federal, provincial, municipal): major issuers of securities; use treasury bills and bonds when revenues fail to meet expenditures or for large capital projects."
+    },
+    {
+      "front": "What are the five classes of financial instruments?",
+      "back": "1. Debt instruments (fixed-income securities) — issuer promises to repay loan at maturity and make interim interest payments (bonds, debentures, mortgages, treasury bills, commercial paper).\n2. Equity instruments — investor buys a share of ownership in a company; may earn dividends and capital gains (common and preferred shares).\n3. Investment funds (mutual funds) — company or trust that manages a portfolio of securities for its clients.\n4. Derivatives — products derived from an underlying instrument (options, futures, rights); suited for sophisticated investors.\n5. Other financial instruments — financially engineered products with combinations of debt, equity, and investment fund characteristics (linked-notes, ETFs)."
+    },
+    {
+      "front": "What is the difference between a primary market and a secondary market?",
+      "back": "Primary market: the initial sale of new securities to investors. Companies raise capital by selling stocks or bonds for the first time (e.g., an IPO). Mutual funds are also bought and sold in the primary market.\n\nSecondary market: the transfer of already-issued securities among investors. The issuing company receives no proceeds from secondary market trades. Without secondary market liquidity, investors would not buy securities in the primary market."
+    },
+    {
+      "front": "What is an auction market?",
+      "back": "An auction market is a marketplace where buyers and sellers channel their bid and ask orders to a single central exchange where they compete against each other. In an auction market, the highest price a buyer is willing to pay (bid price) and the lowest price a seller will accept (ask price) are channelled to a broker who matches orders.\n\nAll Canadian stock exchanges are auction markets. A liquid auction market is characterized by: frequent sales, narrow price spread between bid and ask prices, and small price fluctuations from sale to sale."
+    },
+    {
+      "front": "What is a dealer market (OTC)?",
+      "back": "A dealer market (also called over-the-counter or OTC) is a network of dealers who trade directly with each other. Unlike auction markets, where client orders compete, in a dealer market only the dealers' bid and ask quotations are entered by dealers. Almost all bonds and debentures are sold through dealer markets — the volume of trading (in dollars) on the dealer market for debt securities is significantly larger than the equity market."
+    },
+    {
+      "front": "Name the major Canadian stock exchanges and what each trades.",
+      "back": "• TSX (Toronto Stock Exchange): lists senior equities, income trusts and some ETFs.\n• TSX Venture Exchange: trades junior securities and a few debenture issues.\n• TSX Alpha Exchange: lists equities, debentures, ETFs, and structured products.\n• Montreal Exchange (MX): trades all financial and equity futures and options.\n• ICE NGX: provides electronic trading, central counterparty clearing for North American natural gas and electricity markets.\n• CSE: trades securities of emerging companies.\n• Cboe Canada: provides listing services for public companies, ETFs, SPACs, and closed-end funds; approximately 15% of all volume in Canadian-listed securities."
+    },
+    {
+      "front": "What is a financial intermediary?",
+      "back": "A financial intermediary is any organization that facilitates the trading or movement of financial instruments that transfer capital between suppliers (savers) and users (borrowers).\n\nFinancial intermediaries include banks and trust companies (gather savings from suppliers and transfer them in the form of mortgages, car loans, etc.) and insurance companies and pension funds (collect funds from clients and invest them in bonds, equities, real estate, etc.).\n\nThey are divided into two categories: deposit-taking institutions and non-deposit-taking institutions."
+    },
+    {
+      "front": "What is the role of investment dealers in the financial markets?",
+      "back": "Investment dealers serve two main functions:\n1. Primary market: help transfer capital from savers to users through the underwriting and distribution of new securities.\n2. Secondary market: maintain secondary markets in which previously issued or outstanding securities can be traded among investors — providing liquidity that encourages investors to buy securities in the primary market.\n\nInvestment dealers are also known as brokerage firms or securities houses."
+    },
+    {
+      "front": "What are chartered banks and how significant are they?",
+      "back": "Chartered banks operate under the Bank Act, which is regularly updated. As of early 2024, Canada had 80 banks (35 domestic, 15 foreign bank subsidiaries, 30 foreign bank branches). The 6 largest domestic banks control more than 90% of Canadian banking industry assets.\n\nCanadian banks are becoming relatively smaller internationally. The largest Canadian banks — TD, RBC, Scotiabank, BMO, CIBC — were all in the list of top 50 banks worldwide when ranked by total assets (as of February 2024)."
+    },
+    {
+      "front": "What are credit unions and caisses populaires?",
+      "back": "Credit unions and caisses populaires are cooperative, member-owned credit unions that emerged in the 1960s when some felt chartered banks were too profit-oriented. They are found in English-speaking communities (credit unions) and Quebec/French-speaking communities (caisses populaires).\n\nThey offer similar services to banks: deposit taking and lending, mortgages, mutual funds, insurance, trust services, investment dealer services, and debit/credit cards. They belong to central provincial societies to pool surplus savings and facilitate cheque clearing. Many are as small as one branch."
+    },
+    {
+      "front": "What is a self-regulatory organization (SRO)?",
+      "back": "An SRO is a private industry organization that has been granted the privilege of regulating its own members by provincial regulatory bodies. An SRO is responsible for overseeing its own members by setting rules of conduct and financial compliance with securities legislation.\n\nThe SRO regulating the Canadian investment industry is CIRO. If an SRO rule differs from a provincial rule, the more stringent rule of the two applies."
+    },
+    {
+      "front": "What is CIRO and what does it do?",
+      "back": "CIRO (Canadian Investment Regulatory Organization) is the self-regulatory organization that oversees the trading activity of all investment dealers and mutual fund dealers in Canada.\n\nCIRO carries out its regulatory responsibilities by setting and enforcing rules regarding the proficiency, business, and financial conduct of investment and mutual fund dealers and their registered employees, and by setting and enforcing market integrity rules regarding trading activity on Canadian marketplaces.\n\nNote: CIRO does not regulate the mutual funds themselves — that responsibility remains with the securities commissions."
+    },
+    {
+      "front": "What is the AMF and what is its role in Quebec?",
+      "back": "The Autorité des marchés financiers (AMF) is the regulator of the mutual fund industry in Quebec. The AMF is responsible for overseeing the operation of fund companies within Quebec and for enforcing a code of ethics.\n\nThe Chambre de la sécurité financière is responsible for monitoring and regulating continuing education requirements for mutual fund representatives in Quebec.\n\nIn October 2023, the Quebec government and AMF announced approval of a delegation of powers to CIRO, representing a further step in harmonizing the regulatory framework across Canada."
+    },
+    {
+      "front": "What is the CSA and what is its role?",
+      "back": "The Canadian Securities Administrators (CSA) is the collective body of provincial and territorial securities regulators. The CSA works together to harmonize and coordinate the regulation of the Canadian capital markets across all provinces and territories.\n\nMost legislation regarding the trading and distribution of securities is a provincial matter, dealt with in each province's securities act. Each province's securities administrator is responsible for securities regulation within their province."
+    },
+    {
+      "front": "What is underwriting?",
+      "back": "Underwriting is the process by which investment dealers help companies raise capital by distributing new securities to investors in the primary market. When a company issues bonds in the primary market, the transaction is called an initial public offering (IPO) if it is the first time a company issues stocks.\n\nMutual funds are also sold in the primary market — investors buy directly from (and sell back to) the fund itself."
+    },
+    {
+      "front": "What is an investment fund (mutual fund)?",
+      "back": "An investment fund (or mutual fund) is a vehicle operated by an investment company that pools contributions from investors and invests those proceeds in a variety of securities, including stocks, bonds, and money market instruments.\n\nIndividuals who contribute money become shareholders or unitholders in the fund and share in the income, gains, losses, and expenses of the fund in proportion to the number of units or shares they own.\n\nMutual fund shares/units are redeemable on demand at the fund's current price, which depends on the market value of the fund's portfolio of securities at that time."
+    },
+    {
+      "front": "What is the direct vs. indirect investment distinction?",
+      "back": "Direct investment: occurs when a saver buys a security issued by a government or corporation, who then uses the funds for productive investment — equipment, supplies, etc. This is normally made with the assistance of the retail or institutional sales department of investment firms.\n\nIndirect investment: occurs when a saver buys securities issued by a financial intermediary (bank, trust company, or mutual fund), who in turn uses the funds for direct productive investment."
+    }
+  ],
+  "fillInTheBlank": [
+    {
+      "sentence": "Capital has three important characteristics: it is ___, sensitive to its environment, and scarce.",
+      "answer": "mobile",
+      "hint": "Capital moves between countries in search of the best returns."
+    },
+    {
+      "sentence": "___ investors are individual investors who buy and sell securities for their own personal accounts, not for another company or organization.",
+      "answer": "Retail",
+      "hint": "Think of the opposite of institutional."
+    },
+    {
+      "sentence": "Debt instruments are also referred to as ___ securities because they pay regular interest.",
+      "answer": "fixed-income",
+      "hint": "The income (interest payments) does not change."
+    },
+    {
+      "sentence": "The ___ market is the initial sale of securities to investors, while the ___ market is where already-issued securities are traded among investors.",
+      "answer": "primary / secondary",
+      "hint": "First sale vs. resale."
+    },
+    {
+      "sentence": "An auction market is characterized by frequent sales, narrow price spread between bid and ask prices, and small price fluctuations — these three features together are called ___.",
+      "answer": "liquidity",
+      "hint": "How easily you can buy or sell without moving the price."
+    },
+    {
+      "sentence": "Dealer markets are also referred to as ___ or unlisted markets.",
+      "answer": "over-the-counter (OTC)",
+      "hint": "Securities on these markets are not listed on an organized exchange."
+    },
+    {
+      "sentence": "CIRO stands for the ___ and is the self-regulatory organization that oversees all investment dealers and mutual fund dealers in Canada.",
+      "answer": "Canadian Investment Regulatory Organization",
+      "hint": "Formed when MFDA and IIROC amalgamated in January 2023."
+    },
+    {
+      "sentence": "The six largest domestic banks control more than ___% of Canadian banking industry assets.",
+      "answer": "90",
+      "hint": "A very high percentage — Canada has a highly concentrated banking system."
+    },
+    {
+      "sentence": "A ___ is a private industry organization that has been granted the privilege of regulating its own members by the provincial regulatory bodies.",
+      "answer": "self-regulatory organization (SRO)",
+      "hint": "Three letters: S, R, O."
+    },
+    {
+      "sentence": "In Quebec, the ___ is responsible for overseeing the operation of fund companies, while the Chambre de la sécurité financière monitors continuing education requirements.",
+      "answer": "Autorité des marchés financiers (AMF)",
+      "hint": "Quebec's provincial securities regulator."
+    }
+  ],
+  "trueFalse": [
+    {
+      "statement": "Capital has three characteristics: it is mobile, sensitive to its environment, and scarce.",
+      "answer": true,
+      "explanation": "True. These are the three key characteristics of capital described in Chapter 2. Capital moves to where it can earn the best returns, gravitates toward stable and hospitable environments, and is in short supply worldwide."
+    },
+    {
+      "statement": "Retail investors are organizations such as pension funds or mutual funds that trade large volumes of securities.",
+      "answer": false,
+      "explanation": "False. That describes institutional investors. Retail investors are individual investors who buy and sell securities for their own personal accounts, not for another company or organization."
+    },
+    {
+      "statement": "The primary market is where previously issued securities are traded among investors.",
+      "answer": false,
+      "explanation": "False. The primary market is where new securities are issued and sold for the first time. The secondary market is where previously issued securities are traded among investors."
+    },
+    {
+      "statement": "All bonds and debentures are sold through auction markets (stock exchanges).",
+      "answer": false,
+      "explanation": "False. Almost all bonds and debentures are sold through dealer markets (OTC). The volume of trading in dollars on the dealer market for debt securities is significantly larger than the equity market."
+    },
+    {
+      "statement": "Mutual funds are bought and sold in the primary market.",
+      "answer": true,
+      "explanation": "True. Investors buy mutual fund units directly from (and sell them back to) the fund itself, which constitutes a primary market transaction. The fund continuously issues new units to investors."
+    },
+    {
+      "statement": "CIRO regulates both the dealers themselves and the mutual funds they sell.",
+      "answer": false,
+      "explanation": "False. CIRO oversees investment dealers and mutual fund dealers (the companies and their registered employees), but it does not regulate the mutual funds themselves. That responsibility remains with the provincial securities commissions."
+    },
+    {
+      "statement": "Canada's six largest domestic banks control more than 90% of Canadian banking industry assets.",
+      "answer": true,
+      "explanation": "True. According to the Office of the Superintendent of Financial Institutions, the six largest Canadian domestic banks control more than 90% of banking industry assets, reflecting Canada's highly concentrated banking system."
+    },
+    {
+      "statement": "A liquid auction market is characterized by infrequent sales, wide price spreads, and large price fluctuations.",
+      "answer": false,
+      "explanation": "False. Liquidity in an auction market is characterized by the opposite: frequent sales, narrow price spreads between bid and ask prices, and small price fluctuations from sale to sale."
+    },
+    {
+      "statement": "Credit unions and caisses populaires are cooperative, member-owned financial institutions.",
+      "answer": true,
+      "explanation": "True. Credit unions and caisses populaires are cooperative, member-owned institutions. They emerged because some felt chartered banks were too profit-oriented. They belong to central provincial societies to pool surplus savings and facilitate cheque clearing."
+    },
+    {
+      "statement": "If an SRO rule conflicts with a provincial rule, the provincial rule always takes precedence.",
+      "answer": false,
+      "explanation": "False. When an SRO rule differs from a provincial rule, the more stringent rule of the two applies. SRO regulations apply in addition to provincial regulations, not instead of them."
+    },
+    {
+      "statement": "Foreign direct investment in Canada has historically concentrated in manufacturing, petroleum, natural gas, mining, and smelting.",
+      "answer": true,
+      "explanation": "True. Historically, foreign direct investment in Canada has tended to concentrate in manufacturing, petroleum and natural gas, and mining and smelting. Some of these industries also have restrictions on foreign investment."
+    },
+    {
+      "statement": "The TSX Venture Exchange lists senior equities, income trusts, and exchange-traded funds (ETFs).",
+      "answer": false,
+      "explanation": "False. The TSX lists senior equities, income trusts, and some ETFs. The TSX Venture Exchange trades junior securities and a few debenture issues — it is designed for smaller, growth-stage companies."
+    }
+  ],
+  "multipleChoice": [
+    {
+      "question": "Which of the following best describes the three characteristics of capital?",
+      "options": [
+        "Liquid, predictable, and abundant",
+        "Mobile, sensitive to its environment, and scarce",
+        "Fixed, stable, and nationally bound",
+        "Risky, illiquid, and plentiful"
+      ],
+      "answerIndex": 1,
+      "explanation": "Capital is mobile (it moves across borders seeking best returns), sensitive to its environment (it gravitates toward stable, hospitable investment climates), and scarce (it is in short supply and great demand worldwide). These three characteristics explain why capital flows the way it does globally."
+    },
+    {
+      "question": "Who are retail investors?",
+      "options": [
+        "Organizations such as pension funds and mutual funds that trade large volumes of securities",
+        "Foreign companies that invest in Canadian securities",
+        "Individual investors who buy and sell securities for their own personal accounts",
+        "Government agencies that manage public funds"
+      ],
+      "answerIndex": 2,
+      "explanation": "Retail investors are individual investors who buy and sell securities for their own personal accounts, not for another company or organization. They are contrasted with institutional investors (pension funds, mutual funds) who trade large volumes and have a steady flow of funds."
+    },
+    {
+      "question": "Which class of financial instrument formalizes a relationship where the issuer promises to repay a loan at maturity and make interim interest payments?",
+      "options": [
+        "Equity instruments",
+        "Derivatives",
+        "Investment funds",
+        "Debt instruments"
+      ],
+      "answerIndex": 3,
+      "explanation": "Debt instruments (also called fixed-income securities) formalize a relationship where the issuer promises to repay the loan at maturity and make interim interest payments. Examples include bonds, debentures, mortgages, treasury bills, and commercial paper."
+    },
+    {
+      "question": "What happens in the primary market?",
+      "options": [
+        "Previously issued securities are traded between investors",
+        "Companies buy back their own shares from the market",
+        "New securities are issued and sold to investors for the first time",
+        "Derivatives are created based on existing securities"
+      ],
+      "answerIndex": 2,
+      "explanation": "The primary market is where new securities are issued and sold for the first time. Companies raise capital by selling stocks or bonds to investors (e.g., an IPO). Mutual funds are also bought and sold in the primary market. The issuing company receives proceeds from primary market sales."
+    },
+    {
+      "question": "What characterizes a liquid auction market?",
+      "options": [
+        "Infrequent sales, wide price spreads, and large price fluctuations",
+        "Frequent sales, narrow price spreads, and small price fluctuations",
+        "Dealer-only transactions and privately negotiated prices",
+        "Long settlement times and high transaction costs"
+      ],
+      "answerIndex": 1,
+      "explanation": "A liquid auction market is characterized by frequent sales, narrow price spread between bid and ask prices, and small price fluctuations from sale to sale. These features ensure that investors can easily buy or sell securities at a fair price."
+    },
+    {
+      "question": "Where are most bonds and debentures traded in Canada?",
+      "options": [
+        "On the Toronto Stock Exchange (TSX)",
+        "On the TSX Venture Exchange",
+        "Through dealer markets (OTC)",
+        "On the Montreal Exchange"
+      ],
+      "answerIndex": 2,
+      "explanation": "Almost all bonds and debentures are sold through dealer markets (OTC or over-the-counter). The volume of trading in dollars on the dealer market for debt securities is significantly larger than the equity market. Dealer markets are also called OTC or unlisted markets."
+    },
+    {
+      "question": "What is CIRO?",
+      "options": [
+        "A provincial securities commission that regulates mutual funds",
+        "The self-regulatory organization overseeing all investment dealers and mutual fund dealers in Canada",
+        "A federal government agency that sets interest rates",
+        "The organization responsible for insuring deposits at Canadian banks"
+      ],
+      "answerIndex": 1,
+      "explanation": "CIRO (Canadian Investment Regulatory Organization) is the self-regulatory organization (SRO) that oversees all investment dealers and mutual fund dealers in Canada. It was formed in January 2023 when MFDA and IIROC amalgamated. It does not regulate the mutual funds themselves."
+    },
+    {
+      "question": "Which of the following is an example of a non-deposit-taking financial intermediary?",
+      "options": [
+        "A chartered bank",
+        "A credit union",
+        "A caisse populaire",
+        "A life insurance company"
+      ],
+      "answerIndex": 3,
+      "explanation": "Non-deposit-taking institutions include life insurance companies and investment dealers. They acquire capital without taking deposits — for example, life insurance companies pool premiums from policyholders and invest them in capital market securities. Deposit-taking institutions are banks, trust companies, credit unions, and caisses populaires."
+    },
+    {
+      "question": "What is the role of investment dealers in the primary market?",
+      "options": [
+        "They regulate the trading of securities on stock exchanges",
+        "They underwrite and distribute new securities, transferring capital from savers to users",
+        "They manage client portfolios on a discretionary basis",
+        "They set the interest rates for government treasury bills"
+      ],
+      "answerIndex": 1,
+      "explanation": "In the primary market, investment dealers underwrite and distribute new securities — helping companies and governments raise capital by selling newly issued stocks or bonds to investors. This is the first of their two main functions (the second being maintaining secondary markets)."
+    },
+    {
+      "question": "The CSA (Canadian Securities Administrators) serves which purpose?",
+      "options": [
+        "It is the federal regulator that directly licenses all mutual fund representatives",
+        "It is the SRO that replaced CIRO in 2023",
+        "It is the collective body of provincial regulators that coordinates and harmonizes securities regulation across Canada",
+        "It is the agency responsible for insuring investors against investment losses"
+      ],
+      "answerIndex": 2,
+      "explanation": "The CSA (Canadian Securities Administrators) is the collective body of provincial and territorial securities regulators. Most securities legislation is a provincial matter, so the CSA coordinates and harmonizes regulation across all provinces and territories through the Canadian capital markets."
+    },
+    {
+      "question": "When a company issues new shares to the public for the very first time, this is called:",
+      "options": [
+        "A secondary offering",
+        "A stock buyback",
+        "An initial public offering (IPO)",
+        "A rights issue"
+      ],
+      "answerIndex": 2,
+      "explanation": "When a company issues stocks for the very first time in the primary market, this is called an initial public offering (IPO). Investors buy directly from the company, which uses the proceeds to fund its operations or expansion. After the IPO, those shares trade in the secondary market."
+    },
+    {
+      "question": "Which exchange in Canada trades all financial and equity futures and options?",
+      "options": [
+        "TSX (Toronto Stock Exchange)",
+        "TSX Venture Exchange",
+        "ICE NGX",
+        "Montreal Exchange (MX)"
+      ],
+      "answerIndex": 3,
+      "explanation": "The Montreal Exchange (also known as the Bourse de Montréal) trades all financial and equity futures and options in Canada. It is operated by the TMX Group Inc. ICE NGX focuses on electronic trading for North American natural gas and electricity markets."
+    },
+    {
+      "question": "What is the key difference between direct and indirect investment?",
+      "options": [
+        "Direct investment earns higher returns than indirect investment",
+        "In direct investment, the saver buys securities issued by a government or corporation; in indirect investment, the saver buys from a financial intermediary who then invests the funds",
+        "Direct investment involves only equity; indirect investment involves only debt",
+        "Indirect investment is for institutional investors only; direct investment is for retail investors"
+      ],
+      "answerIndex": 1,
+      "explanation": "In direct investment, a saver buys securities directly issued by governments or corporations (who then use the funds for productive investment like equipment). In indirect investment, a saver buys from a financial intermediary — such as a bank or mutual fund — who in turn channels those funds into direct productive investment."
+    }
+  ],
+  "textbook": [
+    {
+      "section": "Introduction",
+      "content": "The Canadian financial services industry plays a significant role in sustaining and expanding the Canadian economy. The industry grows and evolves to meet the ever-changing needs of Canadian investors, both from domestic and international perspectives.\n\nIn some ways, we are all affected by the financial services industry. The vital economic function the industry plays is based on a simple process: the transfer of money from those who have it (savers) to those who need it (users). This capital transfer process is made possible through the use of a variety of financial instruments: stocks, bonds, mutual funds, and derivatives. Financial intermediaries, such as banks, trust companies, and investment and mutual fund dealers, were created to make the transfer process efficient.\n\nThis chapter introduces the Canadian financial system and its participants: investment markets, products, intermediaries, and the regulatory environment."
+    },
+    {
+      "section": "What Is Investment Capital?",
+      "content": "In general terms, capital is wealth — both real, material things such as land and buildings, and representational items such as money, stocks, and bonds. All of these items have economic value. Capital represents the invested savings of individuals, corporations, governments, and many other organizations and associations. It is in short supply and is arguably the world's most important commodity.\n\nCapital savings are useless by themselves. Only when they are harnessed productively do they gain economic significance. Such utilization may take the form of either direct or indirect investment:\n• Capital savings can be used directly — for example, a couple investing their savings in a home, a government investing in a new highway or hospital, or a domestic or foreign company paying start-up costs for a plant.\n• Capital savings can also be harnessed indirectly through the purchase of such representational items as stocks, bonds, or mutual funds, or through the deposit of savings in a financial institution.\n\nIndirect investment occurs when the saver buys the securities issued by governments and corporations, who in turn use the funds for direct productive investment — equipment, supplies, etc. This investment is normally made with the assistance of the retail or institutional sales department of investment firms."
+    },
+    {
+      "section": "Characteristics of Capital",
+      "content": "Capital has three important characteristics: it is mobile, sensitive to its environment, and scarce. Therefore capital is extremely selective. It attempts to settle in countries or locations where government is stable, economic activity is not over-regulated, the investment climate is hospitable, and profitable investment opportunities exist.\n\nThe decision as to where capital will flow is guided by country risk evaluation, which analyzes:\n• The political environment: whether the country is involved or likely to be involved in internal or external conflicts\n• Economic trends: growth in gross domestic product, inflation rate, levels of economic activity, etc.\n• Fiscal policy: levels of taxes and government spending and the degree to which it encourages savings and investment\n• Monetary policy: the sound management of the growth of the nation's money supply and the extent to which it promotes price and foreign exchange stability\n• Investment opportunities: opportunities for investment and satisfactory returns on investment when considering the risks\n• Characteristics of the labour force: whether it is skilled and productive\n\nBecause of its mobility and sensitivity, capital moves in or out of countries or localities in anticipation of changes in taxation, exchange policy, trade barriers, regulations, and government attitudes. Capital attempts to avoid areas where the above factors are not positive. Thus, capital moves to uses and users that reliably offer the highest returns."
+    },
+    {
+      "section": "Sources of Capital",
+      "content": "The only source of capital is savings. Retail, institutional, and foreign investors are a significant source of investment capital.\n\nRetail Investors: Individual investors who buy and sell securities for their own personal accounts, and not for another company or organization.\n\nInstitutional Investors: Organizations — such as a pension fund or mutual fund company — that trade large volumes of securities and typically have a steady flow of funds to invest. Retail investors generally buy in smaller quantities than larger institutional investors.\n\nForeign Investors: Also a significant source of investment capital. Historically, Canada has depended upon large inflows of foreign investment for continued growth. Foreign direct investment in Canada has tended to concentrate in manufacturing, petroleum and natural gas, and mining and smelting. Some industries also have restrictions with respect to foreign investment."
+    },
+    {
+      "section": "Users of Capital",
+      "content": "Based on the simplest categorization, the users of capital are individuals, businesses, and governments. These can be both Canadian and foreign users.\n\nIndividuals: May require capital to finance housing, consumer durables (automobiles, appliances), or other types of consumption. They usually obtain it through incurring indebtedness in the form of personal loans, mortgage loans, or charge accounts. Since individuals do not issue securities to the public, individual capital users are not discussed further.\n\nBusinesses: Canadian businesses require massive sums of capital to finance day-to-day operations, to renew and maintain plant and equipment, and to expand and diversify activities. A substantial part of these requirements is generated internally (e.g., profits retained in the business), while some is borrowed from financial intermediaries (principally the chartered banks). The remainder is raised in securities markets through the issuance of short-term money market paper, medium- and long-term debt, and preferred and common shares.\n\nGovernments: Governments in Canada are major issuers of securities in public markets, either directly or through guaranteeing the debt of their Crown corporations.\n• Federal Government: When revenues fail to meet expenditures and/or when large capital projects are planned, the federal government must borrow. The government uses two main instruments: treasury bills (T-bills) and marketable bonds.\n• Provincial Governments: Like the federal government, provinces issue debt directly. They may issue bonds to the federal government or borrow funds from CPP assets (or Québec Pension Plan). A province may also issue debt domestically through a syndicate of investment dealers who sell the issue to financial institutions or to retail investors. Some provinces also issue their own short-term treasury bills and savings bonds.\n• Municipal Governments: Responsible for streets, sewers, waterworks, police and fire protection, welfare, transportation, and distribution of electricity. Since many of the assets used to provide these services are expected to last twenty or more years, municipalities attempt to spread their cost over a period of years through the issuance of instalment debentures (serial debentures)."
+    },
+    {
+      "section": "What Are the Financial Instruments?",
+      "content": "Securities are formal, legal documents that set out the rights and obligations of the buyers and sellers. Securities tend to have standard features, which facilitates their trading. There are many types of securities, enabling both investors (buyers) and users (sellers) of capital to meet their particular needs.\n\nFinancial instruments are divided into five broad classes: debt instruments, equity instruments, investment funds, derivatives, and other financial instruments.\n\nDebt Instruments: Formalize a relationship in which the issuer promises to repay the loan at maturity and in the interim makes interest payments to the investor. The term of the loan ranges from very short to very long, depending on the type of instrument. Bonds, debentures, mortgages, treasury bills, and commercial paper are all examples of debt instruments (also referred to as fixed-income securities).\n\nEquity Instruments: Equities are usually referred to as stocks or shares because the investor actually buys a 'share' of the company, thus gaining an ownership stake in the company. As an owner, the investor participates in the corporation's fortunes. If the company does well, the value of the company may increase, giving the investor a capital gain when the shares are sold. The company may also distribute part of its profit to shareholders in the form of dividends. Unlike interest on a debt instrument, dividends are not obligatory. Different types of shares have different characteristics; in general, there are two main types: common and preferred.\n\nInvestment Funds: An investment fund is a company or trust that manages investments for its clients. The most common form is the open-end fund, also known as a mutual fund. The fund raises capital by selling shares or units to investors, and investors are paid based on their proportionate share of the fund's capital. As a unitholder, you get the benefit of diversification.\n\nDerivatives: Unlike stocks and bonds, derivatives are products based on (derived from) an underlying instrument, such as a stock or an index. Derivatives are suited mainly for more sophisticated investors. The most common derivatives are options and futures.\n\nOther Financial Instruments: In the past few years, investment dealers have used the concept of financial engineering to create structured products that have various combinations of characteristics of debt, equity, and investment funds. Two of the most popular are linked-notes and exchange-traded funds (ETFs)."
+    },
+    {
+      "section": "What Are the Financial Markets?",
+      "content": "Securities are a key element in the efficient transfer of capital from savers to users. Many of the benefits of investment products, however, depend on the existence of efficient markets in which these securities can be bought and sold. A well-organized market provides speedy transactions and low transaction costs, along with a high degree of liquidity and effective price regulation.\n\nLike a farmers' market, a financial market (or securities market) provides a forum in which buyers and sellers meet. But there are important differences. In the securities markets, buyers and sellers do not meet face to face. Instead, intermediaries, such as investment advisors (IAs) or bond dealers, act on their clients' behalf.\n\nUnlike most markets, a securities market does not manifest itself in a physical location. This is possible because securities are intangible — at best, pieces of paper. Some securities markets, such as the bond market, exist in 'cyberspace' as a computer- and telephone-based network of dealers who may never see their counterparts' faces.\n\nThe capital market or securities market is made up of many individual markets. For example, there are stock markets, bond markets, and money markets. In addition, securities are sold on primary and secondary markets:\n• In the primary market, new securities are sold by companies and governments to investors for the first time.\n• In the secondary market, investors trade securities that have already been issued by companies and mutually beneficial governments."
+    },
+    {
+      "section": "Auction Markets in Canada",
+      "content": "Markets can also be divided into auction and dealer markets. In an auction market, buyers enter bids and sellers enter offers for a stock. The price at which a stock is traded represents the highest price the buyer is willing to pay (the bid price) and the lowest price the seller is willing to accept (the ask price). These orders are channelled to a single broker and compete against each other.\n\nA stock exchange is a marketplace where buyers and sellers of securities meet to trade with each other and where prices are established according to the laws of supply and demand. On Canadian exchanges, trading is carried out in common and preferred shares, rights and warrants, listed options and futures contracts, instalment receipts, exchange-traded funds (ETFs), income trusts, and a few convertible debentures.\n\nLiquidity is fundamental to the operation of an exchange. A liquid market is characterized by: frequent sales, narrow price spread between bid and ask prices, and small price fluctuations from sale to sale.\n\nCanada's stock exchanges are auction markets. The major Canadian exchanges include:\n• TSX (Toronto Stock Exchange): lists senior equities, income trusts, and exchange-traded funds (ETFs).\n• TSX Venture Exchange: trades junior securities and a few debenture issues.\n• TSX Alpha Exchange: lists equities, debentures, ETFs, and structured products.\n• Montreal Exchange (MX): trades all financial and equity futures and options (Bourse de Montréal, operated by the TMX Group Inc.).\n• ICE NGX Canada: provides electronic trading, central counterparty clearing, and data services for the North American natural gas and electricity markets.\n• CSE: trades securities of emerging companies.\n• Cboe Canada: provides listing services and facilitates trading in public companies, ETFs, special purpose acquisition companies, and closed-end funds. Approximately 15% of all volume in Canadian-listed securities trades through Cboe."
+    },
+    {
+      "section": "Dealer Markets",
+      "content": "Dealer markets are the second major type of market on which securities trade. They consist of a network of dealers who trade with each other, usually over the telephone or over a computer network. Unlike auction markets, where the individual buyer's and seller's orders are entered, a dealer market is a negotiated market where only the dealers' bid and ask quotations are entered by those dealers.\n\nAlmost all bonds and debentures are sold through dealer markets. These dealer markets are less visible than the auction markets for equities, so many people are surprised to learn that the volume of trading (in dollars) on the dealer market for debt securities is significantly larger than the equity market.\n\nDealer markets are also referred to as over-the-counter (OTC) or unlisted markets — securities on these markets are not listed on an organized exchange as they are on auction markets."
+    },
+    {
+      "section": "Who Are the Different Financial Intermediaries?",
+      "content": "The term 'financial intermediary' is used to describe any organization that facilitates the trading or movement of financial instruments that transfer capital between suppliers and users. Intermediaries include banks and trust companies, which concentrate on gathering funds from suppliers in the form of saving deposits and transferring them to users in the form of mortgages, car loans, and other lending instruments. Other intermediaries, such as insurance companies and pension funds, collect funds and invest them in bonds, equities, real estate, etc., to meet their customers' needs for financial security.\n\nIn an efficient and well-ordered economy, suppliers and users of capital must be able to meet. It does little good to have surplus funds to invest if there is no mechanism for finding someone who needs those funds. Whether an individual, a company, or a government is a supplier or user of capital, market access is organized through companies known as financial intermediaries.\n\nIntermediaries can be divided into two broad categories: the deposit-taking and non-deposit-taking institutions:\n• Deposit-taking institutions are the banks and trust companies. They pool the deposits of thousands of savers and then invest those funds in different types of investments. Banks lend money to users of funds — individuals, companies, and governments — and also invest some funds in money market securities.\n• A life insurance company is an example of a non-deposit-taking institution. It acquires capital by pooling the premiums from policies it issues to individuals and then investing those premiums in capital market securities, providing sufficient funds to satisfy the claims of policyholders."
+    },
+    {
+      "section": "The Role of Investment Dealers",
+      "content": "Another example of a non-deposit-taking institution is an investment dealer. Investment dealers serve a number of functions, sometimes acting on their clients' behalf as agents in the transfer of instruments between different investors, and at other times acting as principal. Investment dealers are sometimes known by other names, such as brokerage firms or securities houses. Investment dealers play a significant role in the securities industry's two main functions:\n\n1. First, investment dealers help to transfer capital from savers to users through the underwriting and distribution of new securities. This takes place in the primary market.\n\n2. Second, investment dealers maintain secondary markets in which previously issued or outstanding securities can be traded among investors. The secondary market enables investors who originally bought the investment products to sell them and obtain cash. As noted previously, without secondary market liquidity — the ability to sell the securities with ease at a reasonable price — investors would not buy securities in the primary market."
+    },
+    {
+      "section": "Other Financial Intermediaries",
+      "content": "Chartered Banks: Chartered banks operate under the Bank Act, which has been regularly updated, usually through revisions every five years. The Act sets out specifically what a bank may and may not do and provides operating rules enabling it to function within the regulatory framework. As of early 2024, Canada had 80 banks, made up of 35 domestic banks, 15 foreign bank subsidiaries, and 30 foreign bank branches. The six largest domestic banks control more than 90% of banking industry assets: TD, RBC, Scotiabank, BMO, CIBC, and the Bank of Montreal were all in the list of top 50 banks worldwide when ranked by total assets.\n\nLife Insurance Companies: The insurance industry has two main businesses: life insurance and property and casualty insurance. Life insurance and related products include insurance against loss of life, livelihood, or health (disability insurance, health and dental plans, retirement savings plans, and whole life insurance). The Canadian insurance industry, including agents, appraisers, and adjusters, employs more than 150,000 people, divided more or less evenly between the life insurance industry and the property and casualty insurance industry.\n\nCredit Unions and Caisses Populaires: Early in the 1960s, many individual savers and borrowers felt that chartered banks were too profit-oriented. This led to the establishment of many co-operative, member-owned credit unions in English-speaking communities (Ontario, Saskatchewan, British Columbia) and the parallel caisses populaires in Quebec. Frequently, credit unions seek member-savers from common interest groups. Credit unions and caisses populaires offer diverse services such as banking and business/consumer deposit taking and lending, mortgages, mutual funds, insurance, trust services, investment dealer services, and debit/credit cards.\n\nInvestment Funds: An investment fund (or mutual fund) is a vehicle operated by an investment company that pools contributions from investors and invests those proceeds in a variety of securities, including stocks, bonds, and money market instruments. Individuals who contribute money become shareholders or unitholders in the fund and share in the income, gains, losses, and expenses of the fund in proportion to the number of units or shares they own. Professional money managers manage the assets of the fund by investing the proceeds according to the fund's policies and objectives and based on a particular investing style. Mutual fund shares/units are redeemable on demand at the fund's current price, which depends on the market value of the fund's portfolio of securities at that time."
+    },
+    {
+      "section": "What Is the Canadian Securities Regulatory Framework?",
+      "content": "Regulation of the financial system and financial transactions is a complex matter in Canada, involving both federal and provincial regulators, as well as a self-regulatory organization (SRO). At the federal level, there are several pieces of legislation — such as the Consumer Protection Act, the Criminal Code, the Bank Act, and the Business Corporations Act — that define the rules for participants in the financial system. In general, however, most legislation regarding the trading and distribution of securities is a provincial matter, dealt with in each province's securities act and is the responsibility of each province's securities administrator.\n\nCollectively, the provincial regulators work together to harmonize and coordinate the regulation of the Canadian capital markets through the Canadian Securities Administrators (CSA).\n\nSelf-Regulatory Organization (SRO): A self-regulatory organization is a private industry organization that has been granted the privilege of regulating its own members by the provincial regulatory bodies. An SRO is responsible for overseeing its own members by setting rules of conduct and financial compliance with securities legislation and has the power to prescribe its own rules of conduct and financial compliance for its members. Self-regulatory organization is delegated regulatory functions by the provincial securities legislation. The provincial securities commissions oversee the laws and rules are designed to uphold the rules of the SROs. They also review the conduct of the SROs. They also monitor the conduct of the SROs. If an SRO rule differs from a provincial rule, the more stringent rule of the two applies.\n\nCanadian Investment Regulatory Organization (CIRO): CIRO is the SRO that oversees the trading activity of all investment dealers and mutual fund dealers. CIRO carries out its regulatory responsibilities through setting and enforcing rules regarding the proficiency, business, and financial conduct of investment and mutual fund dealers and their registered employees and through setting and enforcing market integrity rules regarding trading activity on Canadian marketplaces. In Quebec, the mutual fund industry is under the responsibility of the Autorité des marchés financiers (AMF) and the Chambre de la sécurité financière. The AMF is responsible for overseeing the operation of fund companies within the province, and the Chambre is responsible for setting and monitoring continuing education requirements and for enforcing a code of ethics. In October 2023, the government of Quebec and AMF announced their approval of a delegation of powers to CIRO, which represents a further step in the harmonization of the regulatory framework across Canada."
+    }
+  ],
+  "graphs": []
+}

@@ -1,8 +1,8 @@
 {
   "chapters": [
     { "number": 1, "title": "The Role of the Mutual Fund Sales Representative", "available": true },
-    { "number": 2, "title": "Overview of the Canadian Financial Marketplace", "available": false },
-    { "number": 3, "title": "Overview of Economics", "available": false },
+    { "number": 2, "title": "Overview of the Canadian Financial Marketplace", "available": true },
+    { "number": 3, "title": "Overview of Economics", "available": true },
     { "number": 4, "title": "Getting to Know the Client", "available": false },
     { "number": 5, "title": "Behavioural Finance", "available": false },
     { "number": 6, "title": "Tax and Retirement Planning", "available": false },

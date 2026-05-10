@@ -356,6 +356,84 @@ input { font-family: var(--font); }
   margin-bottom: 8px; font-size: 0.82rem; color: var(--grey-mid);
 }
 .exam-top span { font-weight: 700; color: var(--white); }
+
+/* ===== 21. Dashboard Quick Actions ===== */
+.quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+.quick-btn {
+  background: var(--navy-mid); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07);
+  padding: 16px 14px; text-align: left; cursor: pointer; color: var(--white);
+  transition: background 0.2s, transform 0.1s; display: flex; flex-direction: column; gap: 6px;
+}
+.quick-btn:hover { background: var(--navy-light); }
+.quick-btn:active { transform: scale(0.97); }
+.quick-btn-icon { font-size: 1.4rem; }
+.quick-btn-name { font-weight: 700; font-size: 0.88rem; }
+.quick-btn-desc { font-size: 0.75rem; color: var(--grey-mid); line-height: 1.3; }
+
+/* ===== 22. Textbook Reader ===== */
+.tb-chapter-select { margin-bottom: 20px; }
+.tb-ch-btn {
+  background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm); padding: 12px 16px;
+  color: var(--white); font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; width: 100%; text-align: left; margin-bottom: 8px;
+  transition: background 0.15s;
+}
+.tb-ch-btn:hover { background: var(--navy-light); }
+.tb-toc { background: var(--navy-mid); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); overflow: hidden; margin-bottom: 16px; }
+.tb-toc-item {
+  padding: 13px 18px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer; font-size: 0.88rem; font-weight: 600;
+  transition: background 0.15s; color: var(--teal-light);
+}
+.tb-toc-item:last-child { border-bottom: none; }
+.tb-toc-item:hover { background: var(--navy-light); }
+.tb-content { padding-bottom: 40px; }
+.tb-section { margin-bottom: 28px; }
+.tb-section-title {
+  font-size: 1rem; font-weight: 800; color: var(--teal-light);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid rgba(20,184,166,0.2);
+}
+.tb-section-body {
+  font-size: 0.92rem; line-height: 1.75; color: var(--grey-light);
+  white-space: pre-wrap; word-wrap: break-word;
+}
+.tb-nav-row { display: flex; gap: 10px; margin: 20px 0; }
+
+/* ===== 23. Graphs Viewer ===== */
+.graphs-header { margin-bottom: 20px; }
+.graph-card {
+  background: var(--navy-mid); border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.07); margin-bottom: 14px;
+  overflow: hidden; cursor: pointer; transition: background 0.2s;
+}
+.graph-card:hover { background: var(--navy-light); }
+.graph-card-header { padding: 16px 18px; display: flex; align-items: center; gap: 14px; }
+.graph-card-icon { font-size: 1.6rem; flex-shrink: 0; }
+.graph-card-meta { flex: 1; }
+.graph-card-title { font-weight: 700; font-size: 0.92rem; color: var(--white); margin-bottom: 3px; line-height: 1.3; }
+.graph-card-sub { font-size: 0.78rem; color: var(--grey-mid); }
+.graph-card-arrow { color: var(--grey-mid); font-size: 1rem; }
+.graph-detail { padding: 20px 0 40px; }
+.graph-detail-title { font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
+.graph-desc-box { background: var(--navy-mid); border-radius: var(--radius-sm); padding: 16px 18px; margin-bottom: 14px; font-size: 0.9rem; line-height: 1.65; color: var(--grey-light); border-left: 3px solid var(--teal); }
+.graph-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 0.85rem; }
+.graph-table th { background: var(--navy-light); color: var(--teal-light); padding: 10px 12px; text-align: left; font-weight: 700; }
+.graph-table td { padding: 9px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--grey-light); }
+.graph-table tr:last-child td { border-bottom: none; }
+.graph-keypoint { background: rgba(14,148,136,0.12); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 8px; font-size: 0.88rem; color: var(--teal-light); border-left: 3px solid var(--teal); line-height: 1.5; }
+.graph-phase-row { background: var(--navy-mid); border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 6px; font-size: 0.87rem; }
+.graph-phase-name { font-weight: 700; color: var(--teal-light); margin-bottom: 3px; }
+.graph-phase-desc { color: var(--grey-light); line-height: 1.4; }
+.chapter-filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.filter-chip {
+  padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.15); background: var(--navy-mid);
+  color: var(--grey-mid); cursor: pointer; transition: all 0.15s;
+}
+.filter-chip.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
 </style>
 </head>
 <body>
@@ -431,8 +509,10 @@ const State = {
     this.currentMode = mode;
     // Show/hide back button
     const back = document.getElementById('btnBack');
+    const gear = document.getElementById('btnSettings');
     if (view === 'dashboard' || view === 'settings') {
       back.style.display = 'none';
+      gear.style.display = '';
     } else {
       back.style.display = '';
     }
@@ -612,6 +692,18 @@ const Dashboard = {
         <div class="dash-greeting">Investment Funds in Canada</div>
         <div class="dash-title">Study Guide</div>
       </div>
+      <div class="quick-actions">
+        <button class="quick-btn" id="dash-textbook">
+          <div class="quick-btn-icon">📖</div>
+          <div class="quick-btn-name">Read Textbook</div>
+          <div class="quick-btn-desc">Full chapter content to read</div>
+        </button>
+        <button class="quick-btn" id="dash-graphs">
+          <div class="quick-btn-icon">📊</div>
+          <div class="quick-btn-name">Graphs & Tables</div>
+          <div class="quick-btn-desc">Key diagrams for reference</div>
+        </button>
+      </div>
       <div class="section-label">Chapters</div>
       ${chaptersHtml}
     `);
@@ -619,6 +711,8 @@ const Dashboard = {
     document.querySelectorAll('.chapter-card:not(.locked)').forEach(el => {
       el.addEventListener('click', () => ModeSelect.render(parseInt(el.dataset.ch)));
     });
+    document.getElementById('dash-textbook').addEventListener('click', () => TextbookReader.renderChapterSelect());
+    document.getElementById('dash-graphs').addEventListener('click', () => GraphsViewer.render());
   }
 };
 
@@ -645,6 +739,7 @@ const ModeSelect = {
       { id: 'quiz', icon: '📝', name: 'Chapter Quiz', desc: 'Up to 15 multiple-choice questions', ok: data.multipleChoice.length > 0 },
       { id: 'exam', icon: '📋', name: 'Practice Exam', desc: hasExam ? 'Resume in progress' : '100 questions, 2.5 hours', ok: data.multipleChoice.length > 0 },
       { id: 'weakspots', icon: '🎯', name: 'Weak Spots', desc: weakCount > 0 ? `${weakCount} items to review` : 'No weak spots yet!', ok: true },
+      { id: 'textbook', icon: '📖', name: 'Read Chapter', desc: 'Full textbook content', ok: Array.isArray(data.textbook) && data.textbook.length > 0 },
     ];
 
     Render.show(`
@@ -792,8 +887,8 @@ const Matching = {
 
     const pool = shuffle([...data.flashcards]).slice(0, 8);
     this.pairs = pool.map((c, i) => [
-      { id: `t${i}`, text: c.front, pairId: i, type: 'term' },
-      { id: `d${i}`, text: c.back.split('\n')[0].slice(0, 100), pairId: i, type: 'def' }
+      { id: `t${i}`, text: c.front.length > 80 ? c.front.slice(0, 78) + '…' : c.front, pairId: i, type: 'term' },
+      { id: `d${i}`, text: (c.back.split('\n')[0]).length > 120 ? c.back.split('\n')[0].slice(0, 118) + '…' : c.back.split('\n')[0], pairId: i, type: 'def' }
     ]).flat();
     this.pairs = shuffle(this.pairs);
     this.startTime = Date.now();
@@ -1660,6 +1755,239 @@ const WeakSpots = {
 };
 
 /* ================================================
+   MODULE: TextbookReader
+   ================================================ */
+const TextbookReader = {
+  async renderChapterSelect() {
+    State.setView('textbook-select');
+    document.getElementById('btnSettings').style.display = 'none';
+    const toc = await Data.loadToc();
+    const available = toc.chapters.filter(c => c.available);
+    Render.show(`
+      <div class="dash-header">
+        <div class="dash-greeting">Read the Textbook</div>
+        <div class="dash-title">Select a Chapter</div>
+      </div>
+      <div class="section-label">Available Chapters</div>
+      <div class="tb-chapter-select">
+        ${available.map(ch => `
+          <button class="tb-ch-btn" data-ch="${ch.number}">
+            Ch. ${ch.number} — ${escHtml(ch.title)}
+          </button>`).join('')}
+      </div>
+    `);
+    document.querySelectorAll('.tb-ch-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const chNum = parseInt(btn.dataset.ch);
+        const data = await Data.loadChapter(chNum);
+        TextbookReader.renderChapter(chNum, data);
+      });
+    });
+  },
+
+  renderChapter(chNum, data, sectionIdx = null) {
+    State.setView('textbook', chNum);
+    document.getElementById('btnSettings').style.display = 'none';
+    const sections = data.textbook || [];
+    if (sectionIdx !== null) {
+      TextbookReader.renderSection(chNum, data, sectionIdx);
+      return;
+    }
+    // Show table of contents for this chapter
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum} — Textbook</div>
+        <div class="mode-ch-title">${escHtml(data.title)}</div>
+      </div>
+      <div class="section-label">Sections</div>
+      <div class="tb-toc">
+        ${sections.map((s, i) => `
+          <div class="tb-toc-item" data-idx="${i}">
+            ${escHtml(s.section)}
+          </div>`).join('')}
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="tb-read-all">Read All ↓</button>
+      </div>
+    `);
+    document.querySelectorAll('.tb-toc-item').forEach(el => {
+      el.addEventListener('click', () => TextbookReader.renderSection(chNum, data, parseInt(el.dataset.idx)));
+    });
+    document.getElementById('tb-read-all').addEventListener('click', () => TextbookReader.renderAllSections(chNum, data));
+  },
+
+  renderSection(chNum, data, idx) {
+    State.setView('textbook-section', chNum);
+    document.getElementById('btnSettings').style.display = 'none';
+    const sections = data.textbook || [];
+    const s = sections[idx];
+    const isFirst = idx === 0;
+    const isLast = idx === sections.length - 1;
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum} — ${escHtml(data.title)}</div>
+        <div class="mode-ch-title">${escHtml(s.section)}</div>
+      </div>
+      <div class="tb-content">
+        <div class="tb-section">
+          <div class="tb-section-body">${escHtml(s.content)}</div>
+        </div>
+      </div>
+      <div class="tb-nav-row">
+        <button class="btn btn-secondary" id="tb-prev" ${isFirst ? 'disabled style="opacity:0.4"' : ''}>← Previous</button>
+        <button class="btn btn-secondary" id="tb-toc-btn">Contents</button>
+        <button class="btn btn-primary" id="tb-next" ${isLast ? 'disabled style="opacity:0.4"' : ''}>Next →</button>
+      </div>
+    `);
+    if (!isFirst) document.getElementById('tb-prev').addEventListener('click', () => TextbookReader.renderSection(chNum, data, idx - 1));
+    if (!isLast) document.getElementById('tb-next').addEventListener('click', () => TextbookReader.renderSection(chNum, data, idx + 1));
+    document.getElementById('tb-toc-btn').addEventListener('click', () => TextbookReader.renderChapter(chNum, data));
+  },
+
+  renderAllSections(chNum, data) {
+    State.setView('textbook-all', chNum);
+    document.getElementById('btnSettings').style.display = 'none';
+    const sections = data.textbook || [];
+    const sectionsHtml = sections.map(s => `
+      <div class="tb-section">
+        <div class="tb-section-title">${escHtml(s.section)}</div>
+        <div class="tb-section-body">${escHtml(s.content)}</div>
+      </div>`).join('');
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum} — Full Text</div>
+        <div class="mode-ch-title">${escHtml(data.title)}</div>
+      </div>
+      <div class="tb-content">
+        ${sectionsHtml}
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="tb-back-toc">← Contents</button>
+      </div>
+    `);
+    document.getElementById('tb-back-toc').addEventListener('click', () => TextbookReader.renderChapter(chNum, data));
+  }
+};
+
+/* ================================================
+   MODULE: GraphsViewer
+   ================================================ */
+const GraphsViewer = {
+  allGraphs: [],
+  filterCh: null,
+
+  async render() {
+    State.setView('graphs');
+    document.getElementById('btnSettings').style.display = 'none';
+    const toc = await Data.loadToc();
+    const available = toc.chapters.filter(c => c.available);
+    // Collect all graphs from available chapters
+    this.allGraphs = [];
+    for (const ch of available) {
+      const data = await Data.loadChapter(ch.number);
+      if (data.graphs && data.graphs.length > 0) {
+        this.allGraphs.push(...data.graphs);
+      }
+    }
+    this.filterCh = null;
+    this.renderList();
+  },
+
+  renderList() {
+    const chNums = [...new Set(this.allGraphs.map(g => g.chapter))];
+    const filtered = this.filterCh ? this.allGraphs.filter(g => g.chapter === this.filterCh) : this.allGraphs;
+    const filterHtml = `
+      <div class="chapter-filter-row">
+        <button class="filter-chip ${!this.filterCh ? 'active' : ''}" data-ch="all">All</button>
+        ${chNums.map(n => `<button class="filter-chip ${this.filterCh === n ? 'active' : ''}" data-ch="${n}">Ch. ${n}</button>`).join('')}
+      </div>`;
+    const graphsHtml = filtered.length === 0 ?
+      `<div style="text-align:center;padding:40px 20px;color:var(--grey-mid);">No graphs available for this chapter yet.</div>` :
+      filtered.map(g => `
+        <div class="graph-card" data-id="${escHtml(g.id)}">
+          <div class="graph-card-header">
+            <div class="graph-card-icon">${GraphsViewer.iconForType(g.type)}</div>
+            <div class="graph-card-meta">
+              <div class="graph-card-title">${escHtml(g.title)}</div>
+              <div class="graph-card-sub">Chapter ${g.chapter}</div>
+            </div>
+            <div class="graph-card-arrow">›</div>
+          </div>
+        </div>`).join('');
+    Render.show(`
+      <div class="graphs-header">
+        <div class="dash-greeting">Reference</div>
+        <div class="dash-title">Graphs & Tables</div>
+      </div>
+      ${filterHtml}
+      ${graphsHtml}
+    `);
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ch = btn.dataset.ch;
+        this.filterCh = ch === 'all' ? null : parseInt(ch);
+        this.renderList();
+      });
+    });
+    document.querySelectorAll('.graph-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const gid = card.dataset.id;
+        const graph = this.allGraphs.find(g => g.id === gid);
+        if (graph) this.renderDetail(graph);
+      });
+    });
+  },
+
+  renderDetail(graph) {
+    State.setView('graph-detail');
+    document.getElementById('btnSettings').style.display = 'none';
+    let bodyHtml = `
+      <div class="graph-desc-box">${escHtml(graph.description)}</div>
+    `;
+    // Table (supply/demand or similar)
+    if (graph.table) {
+      bodyHtml += `
+        <table class="graph-table">
+          <thead><tr>${graph.table.headers.map(h => `<th>${escHtml(h)}</th>`).join('')}</tr></thead>
+          <tbody>${graph.table.rows.map(row => `<tr>${row.map(cell => `<td>${escHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>
+      `;
+    }
+    // Business cycle phases
+    if (graph.phases) {
+      bodyHtml += `<div class="section-label" style="margin-top:16px;">Phases</div>`;
+      bodyHtml += graph.phases.map(p => `
+        <div class="graph-phase-row">
+          <div class="graph-phase-name">${escHtml(p.name)}</div>
+          <div class="graph-phase-desc">${escHtml(p.description)}</div>
+        </div>`).join('');
+    }
+    // Key points
+    const pts = graph.keyPoints || (graph.keyPoint ? [graph.keyPoint] : []);
+    if (pts.length > 0) {
+      bodyHtml += `<div class="section-label" style="margin-top:16px;">Key Points</div>`;
+      bodyHtml += pts.map(p => `<div class="graph-keypoint">• ${escHtml(p)}</div>`).join('');
+    }
+    Render.show(`
+      <div class="graph-detail">
+        <div class="mode-ch-label" style="font-size:0.78rem;color:var(--teal-light);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Chapter ${graph.chapter}</div>
+        <div class="graph-detail-title">${escHtml(graph.title)}</div>
+        ${bodyHtml}
+        <div class="btn-row" style="margin-top:20px;">
+          <button class="btn btn-secondary" id="graph-back">← Back to Graphs</button>
+        </div>
+      </div>
+    `);
+    document.getElementById('graph-back').addEventListener('click', () => this.renderList());
+  },
+
+  iconForType(type) {
+    const icons = { supply_demand: '📉', business_cycle: '🔄', line_chart: '📈', bar_chart: '📊', table: '📋' };
+    return icons[type] || '📊';
+  }
+};
+
+/* ================================================
    MODULE: Settings
    ================================================ */
 const Settings = {
@@ -1718,6 +2046,18 @@ const App = {
       // already home
     } else if (v === 'modeSelect') {
       Dashboard.render();
+    } else if (v === 'textbook-select') {
+      Dashboard.render();
+    } else if (v === 'textbook') {
+      TextbookReader.renderChapterSelect();
+    } else if (v === 'textbook-section' || v === 'textbook-all') {
+      if (ch) {
+        State.chapterData[`ch${ch}`] ? TextbookReader.renderChapter(ch, State.chapterData[`ch${ch}`]) : TextbookReader.renderChapterSelect();
+      } else { Dashboard.render(); }
+    } else if (v === 'graphs') {
+      Dashboard.render();
+    } else if (v === 'graph-detail') {
+      GraphsViewer.renderList();
     } else if (ch) {
       // From any study mode, go back to mode select
       ModeSelect.render(ch);
@@ -1736,6 +2076,7 @@ const App = {
       case 'quiz': ChapterQuiz.render(chNum, data); break;
       case 'exam': PracticeExam.render(chNum, data); break;
       case 'weakspots': WeakSpots.render(chNum); break;
+      case 'textbook': TextbookReader.renderChapter(chNum, data); break;
     }
   }
 };
@@ -1772,6 +2113,419 @@ App.init().catch(err => {
       <em>${err.message}</em><br><br>
       Make sure you're opening this via a local server or GitHub Pages — not directly from a file.</div>
     </div>`;
+});
+</script>
+</body>
+</html>
+          const correct = choice === item.answerIndex;
+          document.querySelectorAll('.option-btn').forEach((b,i) => {
+            b.disabled = true;
+            if (i === item.answerIndex) b.classList.add('correct');
+            else if (i === choice && !correct) b.classList.add('wrong');
+          });
+          document.getElementById('ws-exp').innerHTML = `<div class="explanation-box" style="margin-top:12px;">${escHtml(item.explanation)}</div>`;
+          document.querySelector('.btn-row').classList.remove('hidden');
+          document.getElementById('ws-mc-next').addEventListener('click', () => this.respond(correct, item));
+        });
+      });
+    }
+  },
+
+  respond(correct, item) {
+    const key = `${item.weakRef.type}-${item.weakRef.idx}`;
+    if (!this.streak[key]) this.streak[key] = 0;
+    if (correct) {
+      this.streak[key]++;
+      if (this.streak[key] >= 3) {
+        Progress.removeWeak(this.chNum, item.weakRef.type, item.weakRef.idx);
+        Render.toast('🌟 Graduated from weak spots!');
+      }
+    } else {
+      this.streak[key] = 0;
+    }
+
+    if (this.idx < this.items.length - 1) {
+      this.idx++;
+      this.showItem();
+    } else {
+      Render.show(`
+        <div class="end-screen">
+          <div class="end-icon">🎯</div>
+          <div class="end-title">Weak Spots Done!</div>
+          <div class="end-sub">Keep reviewing until all items graduate (3 correct in a row).</div>
+          <div class="btn-row">
+            <button class="btn btn-primary btn-lg" id="ws-again">Go Again</button>
+            <button class="btn btn-secondary btn-lg" id="ws-home">Back to Chapter</button>
+          </div>
+        </div>
+      `);
+      document.getElementById('ws-again').addEventListener('click', () => this.render(this.chNum));
+      document.getElementById('ws-home').addEventListener('click', () => ModeSelect.render(this.chNum));
+    }
+  }
+};
+
+/* ================================================
+   MODULE: TextbookReader
+   ================================================ */
+const TextbookReader = {
+  async renderChapterSelect() {
+    State.setView('textbook-select');
+    document.getElementById('btnSettings').style.display = 'none';
+    const toc = await Data.loadToc();
+    const available = toc.chapters.filter(c => c.available);
+    Render.show(`
+      <div class="dash-header">
+        <div class="dash-greeting">Read the Textbook</div>
+        <div class="dash-title">Select a Chapter</div>
+      </div>
+      <div class="section-label">Available Chapters</div>
+      <div class="tb-chapter-select">
+        ${available.map(ch => `
+          <button class="tb-ch-btn" data-ch="${ch.number}">
+            Ch. ${ch.number} &mdash; ${escHtml(ch.title)}
+          </button>`).join('')}
+      </div>
+    `);
+    document.querySelectorAll('.tb-ch-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const chNum = parseInt(btn.dataset.ch);
+        const data = await Data.loadChapter(chNum);
+        TextbookReader.renderChapter(chNum, data);
+      });
+    });
+  },
+
+  renderChapter(chNum, data, sectionIdx) {
+    State.setView('textbook', chNum);
+    document.getElementById('btnSettings').style.display = 'none';
+    const sections = data.textbook || [];
+    if (sectionIdx !== undefined && sectionIdx !== null) {
+      TextbookReader.renderSection(chNum, data, sectionIdx);
+      return;
+    }
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum} &mdash; Textbook</div>
+        <div class="mode-ch-title">${escHtml(data.title)}</div>
+      </div>
+      <div class="section-label">Sections</div>
+      <div class="tb-toc">
+        ${sections.map((s, i) => `
+          <div class="tb-toc-item" data-idx="${i}">${escHtml(s.section)}</div>`).join('')}
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="tb-read-all">Read All &darr;</button>
+      </div>
+    `);
+    document.querySelectorAll('.tb-toc-item').forEach(el => {
+      el.addEventListener('click', () => TextbookReader.renderSection(chNum, data, parseInt(el.dataset.idx)));
+    });
+    document.getElementById('tb-read-all').addEventListener('click', () => TextbookReader.renderAllSections(chNum, data));
+  },
+
+  renderSection(chNum, data, idx) {
+    State.setView('textbook-section', chNum);
+    document.getElementById('btnSettings').style.display = 'none';
+    const sections = data.textbook || [];
+    const s = sections[idx];
+    const isFirst = idx === 0;
+    const isLast = idx === sections.length - 1;
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum} &mdash; ${escHtml(data.title)}</div>
+        <div class="mode-ch-title">${escHtml(s.section)}</div>
+      </div>
+      <div class="tb-content">
+        <div class="tb-section">
+          <div class="tb-section-body">${escHtml(s.content)}</div>
+        </div>
+      </div>
+      <div class="tb-nav-row">
+        <button class="btn btn-secondary" id="tb-prev" ${isFirst ? 'disabled style="opacity:0.4"' : ''}>&#8592; Previous</button>
+        <button class="btn btn-secondary" id="tb-toc-btn">Contents</button>
+        <button class="btn btn-primary" id="tb-next" ${isLast ? 'disabled style="opacity:0.4"' : ''}>Next &#8594;</button>
+      </div>
+    `);
+    if (!isFirst) document.getElementById('tb-prev').addEventListener('click', () => TextbookReader.renderSection(chNum, data, idx - 1));
+    if (!isLast) document.getElementById('tb-next').addEventListener('click', () => TextbookReader.renderSection(chNum, data, idx + 1));
+    document.getElementById('tb-toc-btn').addEventListener('click', () => TextbookReader.renderChapter(chNum, data));
+  },
+
+  renderAllSections(chNum, data) {
+    State.setView('textbook-all', chNum);
+    document.getElementById('btnSettings').style.display = 'none';
+    const sections = data.textbook || [];
+    const sectionsHtml = sections.map(s => `
+      <div class="tb-section">
+        <div class="tb-section-title">${escHtml(s.section)}</div>
+        <div class="tb-section-body">${escHtml(s.content)}</div>
+      </div>`).join('');
+    Render.show(`
+      <div class="mode-header">
+        <div class="mode-ch-label">Chapter ${chNum} &mdash; Full Text</div>
+        <div class="mode-ch-title">${escHtml(data.title)}</div>
+      </div>
+      <div class="tb-content">
+        ${sectionsHtml}
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="tb-back-toc">&#8592; Contents</button>
+      </div>
+    `);
+    document.getElementById('tb-back-toc').addEventListener('click', () => TextbookReader.renderChapter(chNum, data));
+  }
+};
+
+/* ================================================
+   MODULE: GraphsViewer
+   ================================================ */
+const GraphsViewer = {
+  allGraphs: [],
+  filterCh: null,
+
+  async render() {
+    State.setView('graphs');
+    document.getElementById('btnSettings').style.display = 'none';
+    const toc = await Data.loadToc();
+    const available = toc.chapters.filter(c => c.available);
+    this.allGraphs = [];
+    for (const ch of available) {
+      const data = await Data.loadChapter(ch.number);
+      if (data.graphs && data.graphs.length > 0) {
+        this.allGraphs.push(...data.graphs);
+      }
+    }
+    this.filterCh = null;
+    this.renderList();
+  },
+
+  renderList() {
+    const chNums = [...new Set(this.allGraphs.map(g => g.chapter))];
+    const filtered = this.filterCh ? this.allGraphs.filter(g => g.chapter === this.filterCh) : this.allGraphs;
+    const filterHtml = chNums.length > 1 ? `
+      <div class="chapter-filter-row">
+        <button class="filter-chip ${!this.filterCh ? 'active' : ''}" data-ch="all">All</button>
+        ${chNums.map(n => `<button class="filter-chip ${this.filterCh === n ? 'active' : ''}" data-ch="${n}">Ch. ${n}</button>`).join('')}
+      </div>` : '';
+    const graphsHtml = filtered.length === 0 ?
+      `<div style="text-align:center;padding:40px 20px;color:var(--grey-mid);"><div style="font-size:2.5rem;margin-bottom:12px;">📊</div><div>No graphs available yet.<br>They will appear here as chapters are added.</div></div>` :
+      filtered.map(g => `
+        <div class="graph-card" data-id="${escHtml(g.id)}">
+          <div class="graph-card-header">
+            <div class="graph-card-icon">${GraphsViewer.iconForType(g.type)}</div>
+            <div class="graph-card-meta">
+              <div class="graph-card-title">${escHtml(g.title)}</div>
+              <div class="graph-card-sub">Chapter ${g.chapter}</div>
+            </div>
+            <div class="graph-card-arrow">&#8250;</div>
+          </div>
+        </div>`).join('');
+    Render.show(`
+      <div class="graphs-header">
+        <div class="dash-greeting">Reference</div>
+        <div class="dash-title">Graphs &amp; Tables</div>
+      </div>
+      ${filterHtml}
+      ${graphsHtml}
+    `);
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ch = btn.dataset.ch;
+        this.filterCh = ch === 'all' ? null : parseInt(ch);
+        this.renderList();
+      });
+    });
+    document.querySelectorAll('.graph-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const gid = card.dataset.id;
+        const graph = this.allGraphs.find(g => g.id === gid);
+        if (graph) this.renderDetail(graph);
+      });
+    });
+  },
+
+  renderDetail(graph) {
+    State.setView('graph-detail');
+    document.getElementById('btnSettings').style.display = 'none';
+    let bodyHtml = `<div class="graph-desc-box">${escHtml(graph.description)}</div>`;
+    if (graph.table) {
+      bodyHtml += `
+        <table class="graph-table">
+          <thead><tr>${graph.table.headers.map(h => `<th>${escHtml(h)}</th>`).join('')}</tr></thead>
+          <tbody>${graph.table.rows.map(row => `<tr>${row.map(cell => `<td>${escHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>`;
+    }
+    if (graph.phases) {
+      bodyHtml += `<div class="section-label" style="margin-top:16px;">Phases</div>`;
+      bodyHtml += graph.phases.map(p => `
+        <div class="graph-phase-row">
+          <div class="graph-phase-name">${escHtml(p.name)}</div>
+          <div class="graph-phase-desc">${escHtml(p.description)}</div>
+        </div>`).join('');
+    }
+    const pts = graph.keyPoints || (graph.keyPoint ? [graph.keyPoint] : []);
+    if (pts.length > 0) {
+      bodyHtml += `<div class="section-label" style="margin-top:16px;">Key Points</div>`;
+      bodyHtml += pts.map(p => `<div class="graph-keypoint">&#8226; ${escHtml(p)}</div>`).join('');
+    }
+    Render.show(`
+      <div class="graph-detail">
+        <div class="mode-ch-label" style="font-size:0.78rem;color:var(--teal-light);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Chapter ${graph.chapter}</div>
+        <div class="graph-detail-title">${escHtml(graph.title)}</div>
+        ${bodyHtml}
+        <div class="btn-row" style="margin-top:20px;">
+          <button class="btn btn-secondary" id="graph-back">&#8592; Back to Graphs</button>
+        </div>
+      </div>
+    `);
+    document.getElementById('graph-back').addEventListener('click', () => this.renderList());
+  },
+
+  iconForType(type) {
+    const icons = { supply_demand: '📉', business_cycle: '🔄', line_chart: '📈', bar_chart: '📊', table: '📋' };
+    return icons[type] || '📊';
+  }
+};
+
+/* ================================================
+   MODULE: Settings
+   ================================================ */
+const Settings = {
+  render() {
+    State.setView('settings');
+    document.getElementById('btnSettings').style.display = 'none';
+    Render.show(`
+      <div class="dash-header">
+        <div class="dash-title">Settings</div>
+      </div>
+      <div class="settings-panel">
+        <div class="settings-item" id="set-clear">
+          <div class="settings-item-text">
+            <div class="label">Clear All Progress</div>
+            <div class="desc">Reset flashcard buckets, scores, and weak spots</div>
+          </div>
+          <div class="settings-arrow">&#8250;</div>
+        </div>
+      </div>
+      <div class="about-box">
+        <div class="logo">IFC Study Guide</div>
+        <div class="sub">Investment Funds in Canada<br>Canadian Securities Institute<br><br>Study smarter. Pass with confidence.</div>
+      </div>
+    `);
+
+    document.getElementById('set-clear').addEventListener('click', () => {
+      Render.confirm(
+        'Clear All Progress?',
+        'This will reset all flashcard buckets, quiz scores, and weak spots across all chapters. This cannot be undone.',
+        () => {
+          Progress.clearAll();
+          Render.toast('Progress cleared.');
+          Dashboard.render();
+        }
+      );
+    });
+  }
+};
+
+/* ================================================
+   MODULE: App (init + routing)
+   ================================================ */
+const App = {
+  async init() {
+    document.getElementById('btnBack').addEventListener('click', () => this.goBack());
+    document.getElementById('btnSettings').addEventListener('click', () => Settings.render());
+    await Dashboard.render();
+  },
+
+  goBack() {
+    const v = State.currentView;
+    const ch = State.currentChapter;
+    if (v === 'settings') {
+      Dashboard.render();
+    } else if (v === 'dashboard') {
+      // already home
+    } else if (v === 'modeSelect') {
+      Dashboard.render();
+    } else if (v === 'textbook-select') {
+      Dashboard.render();
+    } else if (v === 'textbook') {
+      TextbookReader.renderChapterSelect();
+    } else if (v === 'textbook-section' || v === 'textbook-all') {
+      if (ch && State.chapterData[`ch${ch}`]) {
+        TextbookReader.renderChapter(ch, State.chapterData[`ch${ch}`]);
+      } else {
+        TextbookReader.renderChapterSelect();
+      }
+    } else if (v === 'graphs') {
+      Dashboard.render();
+    } else if (v === 'graph-detail') {
+      GraphsViewer.renderList();
+    } else if (ch) {
+      ModeSelect.render(ch);
+    } else {
+      Dashboard.render();
+    }
+  },
+
+  launchMode(chNum, mode, data) {
+    switch (mode) {
+      case 'flashcards': Flashcards.render(chNum, data); break;
+      case 'matching': Matching.render(chNum, data); break;
+      case 'fillinblank': FillBlank.render(chNum, data); break;
+      case 'truefalse': TrueFalse.render(chNum, data); break;
+      case 'speedround': SpeedRound.render(chNum, data); break;
+      case 'quiz': ChapterQuiz.render(chNum, data); break;
+      case 'exam': PracticeExam.render(chNum, data); break;
+      case 'weakspots': WeakSpots.render(chNum); break;
+      case 'textbook': TextbookReader.renderChapter(chNum, data); break;
+    }
+  }
+};
+
+/* ================================================
+   UTILS
+   ================================================ */
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function escHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/* ================================================
+   BOOT
+   ================================================ */
+App.init().catch(err => {
+  document.getElementById('app').innerHTML = `
+    <div style="text-align:center;padding:40px 20px;color:var(--grey-mid);">
+      <div style="font-size:2rem;margin-bottom:12px;">⚠️</div>
+      <div style="font-size:1rem;">Could not load study guide.<br><br>
+      <em>${err.message}</em><br><br>
+      Make sure you're opening this via a local server or GitHub Pages — not directly from a file.</div>
+    </div>`;
+});
+</script>
+</body>
+</html>
+Pages.</div>
+    </div>`;
+});
+</script>
+</body>
+</html>
+
 });
 </script>
 </body>
