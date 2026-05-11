@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -682,7 +682,7 @@ const Dashboard = {
             <div class="ch-title">${ch.title}</div>
             <div class="ch-progress-bar"><div class="ch-progress-fill" style="width:0%"></div></div>
           </div>
-          <div class="ch-lock">ðŸ”’</div>
+          <div class="ch-lock">🔒</div>
         </div>`;
       }
     }).join('');
@@ -694,12 +694,12 @@ const Dashboard = {
       </div>
       <div class="quick-actions">
         <button class="quick-btn" id="dash-textbook">
-          <div class="quick-btn-icon">ðŸ“–</div>
+          <div class="quick-btn-icon">📖</div>
           <div class="quick-btn-name">Read Textbook</div>
           <div class="quick-btn-desc">Full chapter content to read</div>
         </button>
         <button class="quick-btn" id="dash-graphs">
-          <div class="quick-btn-icon">ðŸ“Š</div>
+          <div class="quick-btn-icon">📊</div>
           <div class="quick-btn-name">Graphs & Tables</div>
           <div class="quick-btn-desc">Key diagrams for reference</div>
         </button>
@@ -731,15 +731,15 @@ const ModeSelect = {
     const weakCount = Progress.getWeak(chNum).length;
 
     const modes = [
-      { id: 'flashcards', icon: 'ðŸƒ', name: 'Flashcards', desc: 'Spaced repetition â€” master every term', ok: data.flashcards.length > 0 },
-      { id: 'matching', icon: 'ðŸŽ¯', name: 'Matching', desc: 'Match terms to definitions', ok: data.flashcards.length >= 4 },
-      { id: 'fillinblank', icon: 'âœï¸', name: 'Fill in the Blank', desc: 'Complete key sentences', ok: data.fillInTheBlank.length > 0 },
-      { id: 'truefalse', icon: 'âš¡', name: 'True / False', desc: 'Rapid-fire true/false statements', ok: data.trueFalse.length > 0 },
-      { id: 'speedround', icon: 'â±ï¸', name: 'Speed Round', desc: '60 seconds â€” how many can you get?', ok: data.flashcards.length > 0 },
-      { id: 'quiz', icon: 'ðŸ“', name: 'Chapter Quiz', desc: 'Up to 15 multiple-choice questions', ok: data.multipleChoice.length > 0 },
-      { id: 'exam', icon: 'ðŸ“‹', name: 'Practice Exam', desc: hasExam ? 'Resume in progress' : '100 questions, 2.5 hours', ok: data.multipleChoice.length > 0 },
-      { id: 'weakspots', icon: 'ðŸŽ¯', name: 'Weak Spots', desc: weakCount > 0 ? `${weakCount} items to review` : 'No weak spots yet!', ok: true },
-      { id: 'textbook', icon: 'ðŸ“–', name: 'Read Chapter', desc: 'Full textbook content', ok: Array.isArray(data.textbook) && data.textbook.length > 0 },
+      { id: 'flashcards', icon: '🃏', name: 'Flashcards', desc: 'Spaced repetition — master every term', ok: data.flashcards.length > 0 },
+      { id: 'matching', icon: '🎯', name: 'Matching', desc: 'Match terms to definitions', ok: data.flashcards.length >= 4 },
+      { id: 'fillinblank', icon: '✏️', name: 'Fill in the Blank', desc: 'Complete key sentences', ok: data.fillInTheBlank.length > 0 },
+      { id: 'truefalse', icon: '⚡', name: 'True / False', desc: 'Rapid-fire true/false statements', ok: data.trueFalse.length > 0 },
+      { id: 'speedround', icon: '⏱️', name: 'Speed Round', desc: '60 seconds — how many can you get?', ok: data.flashcards.length > 0 },
+      { id: 'quiz', icon: '📝', name: 'Chapter Quiz', desc: 'Up to 15 multiple-choice questions', ok: data.multipleChoice.length > 0 },
+      { id: 'exam', icon: '📋', name: 'Practice Exam', desc: hasExam ? 'Resume in progress' : '100 questions, 2.5 hours', ok: data.multipleChoice.length > 0 },
+      { id: 'weakspots', icon: '🎯', name: 'Weak Spots', desc: weakCount > 0 ? `${weakCount} items to review` : 'No weak spots yet!', ok: true },
+      { id: 'textbook', icon: '📖', name: 'Read Chapter', desc: 'Full textbook content', ok: Array.isArray(data.textbook) && data.textbook.length > 0 },
     ];
 
     Render.show(`
@@ -788,7 +788,7 @@ const Flashcards = {
 
     Render.show(`
       <div class="study-header">
-        <div class="study-mode-label">ðŸƒ Flashcards</div>
+        <div class="study-mode-label">🃏 Flashcards</div>
         <div class="study-progress-row">
           ${Render.progressBar(pct)}
           <div class="study-progress-text">${this.idx + 1} / ${this.cards.length}</div>
@@ -808,7 +808,7 @@ const Flashcards = {
       </div>
       <div class="fc-action-row${this.flipped ? '' : ' hidden'}" id="fc-actions">
         <button class="btn btn-danger fc-action-row" id="fc-no" style="flex:1;padding:14px;">Still Learning</button>
-        <button class="btn btn-success fc-action-row" id="fc-yes" style="flex:1;padding:14px;">Got It âœ“</button>
+        <button class="btn btn-success fc-action-row" id="fc-yes" style="flex:1;padding:14px;">Got It ✓</button>
       </div>
       <div class="btn-row" style="margin-top:10px;">
         <button class="btn btn-secondary" id="fc-skip">Skip</button>
@@ -859,7 +859,7 @@ const Flashcards = {
   showComplete() {
     Render.show(`
       <div class="end-screen">
-        <div class="end-icon">ðŸŽ‰</div>
+        <div class="end-icon">🎉</div>
         <div class="end-title">Deck Complete!</div>
         <div class="end-sub">You've reviewed all ${this.cards.length} flashcards.<br>Keep studying to move cards into higher buckets.</div>
         <div class="btn-row">
@@ -887,8 +887,8 @@ const Matching = {
 
     const pool = shuffle([...data.flashcards]).slice(0, 8);
     this.pairs = pool.map((c, i) => [
-      { id: `t${i}`, text: c.front.length > 80 ? c.front.slice(0, 78) + 'â€¦' : c.front, pairId: i, type: 'term' },
-      { id: `d${i}`, text: (c.back.split('\n')[0]).length > 120 ? c.back.split('\n')[0].slice(0, 118) + 'â€¦' : c.back.split('\n')[0], pairId: i, type: 'def' }
+      { id: `t${i}`, text: c.front.length > 80 ? c.front.slice(0, 78) + '…' : c.front, pairId: i, type: 'term' },
+      { id: `d${i}`, text: (c.back.split('\n')[0]).length > 120 ? c.back.split('\n')[0].slice(0, 118) + '…' : c.back.split('\n')[0], pairId: i, type: 'def' }
     ]).flat();
     this.pairs = shuffle(this.pairs);
     this.startTime = Date.now();
@@ -904,7 +904,7 @@ const Matching = {
 
     Render.show(`
       <div class="study-header">
-        <div class="study-mode-label">ðŸŽ¯ Matching</div>
+        <div class="study-mode-label">🎯 Matching</div>
       </div>
       <div class="match-timer" id="match-timer">0:00</div>
       <div class="match-grid" id="match-grid">${cardsHtml}</div>
@@ -940,7 +940,7 @@ const Matching = {
         // Match!
         [prev, el].forEach(e => { e.classList.remove('selected'); e.classList.add('matched'); });
         this.matched++;
-        Render.toast('âœ“ Match!', 800);
+        Render.toast('✓ Match!', 800);
         if (this.matched === this.pairs.length / 2) {
           clearInterval(this.timerInterval);
           setTimeout(() => this.showComplete(), 400);
@@ -962,7 +962,7 @@ const Matching = {
     const timeStr = `${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}`;
     Render.show(`
       <div class="end-screen">
-        <div class="end-icon">ðŸŽ¯</div>
+        <div class="end-icon">🎯</div>
         <div class="end-title">All Matched!</div>
         <div class="end-sub">Completed in ${timeStr}. Great memory!</div>
         <div class="btn-row">
@@ -998,19 +998,19 @@ const FillBlank = {
 
     Render.show(`
       <div class="study-header">
-        <div class="study-mode-label">âœï¸ Fill in the Blank</div>
+        <div class="study-mode-label">✏️ Fill in the Blank</div>
         <div class="study-progress-row">
           ${Render.progressBar(pct)}
           <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
         </div>
       </div>
       <div class="fib-sentence">${sentenceHtml}</div>
-      ${item.hint ? `<div class="fib-hint">ðŸ’¡ Hint: ${item.hint}</div>` : ''}
-      <input class="fib-input" id="fib-input" type="text" placeholder="Type your answerâ€¦" autocomplete="off">
+      ${item.hint ? `<div class="fib-hint">💡 Hint: ${item.hint}</div>` : ''}
+      <input class="fib-input" id="fib-input" type="text" placeholder="Type your answer…" autocomplete="off">
       <div id="fib-result"></div>
       <div class="btn-row" style="margin-top:14px;">
         <button class="btn btn-primary" id="fib-check">Check Answer</button>
-        <button class="btn btn-secondary" id="fib-next" ${this.answered ? '' : 'style="display:none"'}>Next â†’</button>
+        <button class="btn btn-secondary" id="fib-next" ${this.answered ? '' : 'style="display:none"'}>Next →</button>
       </div>
     `);
 
@@ -1036,10 +1036,10 @@ const FillBlank = {
 
     const result = document.getElementById('fib-result');
     if (correct) {
-      result.innerHTML = `<div class="fib-answer">âœ“ Correct!</div>`;
+      result.innerHTML = `<div class="fib-answer">✓ Correct!</div>`;
       Progress.removeWeak(this.chNum, 'fib', this.idx);
     } else {
-      result.innerHTML = `<div class="fib-answer" style="color:var(--danger)">âœ— The answer is: <strong>${item.answer}</strong></div>`;
+      result.innerHTML = `<div class="fib-answer" style="color:var(--danger)">✗ The answer is: <strong>${item.answer}</strong></div>`;
       Progress.recordWeak(this.chNum, 'fib', this.idx);
     }
 
@@ -1056,7 +1056,7 @@ const FillBlank = {
     } else {
       Render.show(`
         <div class="end-screen">
-          <div class="end-icon">âœï¸</div>
+          <div class="end-icon">✏️</div>
           <div class="end-title">All Done!</div>
           <div class="end-sub">You completed all ${this.items.length} fill-in-the-blank questions.</div>
           <div class="btn-row">
@@ -1093,7 +1093,7 @@ const TrueFalse = {
 
     Render.show(`
       <div class="study-header">
-        <div class="study-mode-label">âš¡ True / False</div>
+        <div class="study-mode-label">⚡ True / False</div>
         <div class="study-progress-row">
           ${Render.progressBar(pct)}
           <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
@@ -1102,12 +1102,12 @@ const TrueFalse = {
       <div class="tf-score">Score: <span>${this.score}</span> / ${this.idx}</div>
       <div class="tf-statement">${escHtml(item.statement)}</div>
       <div class="tf-btn-row">
-        <button class="tf-btn tf-true" id="tf-true">âœ“ True</button>
-        <button class="tf-btn tf-false" id="tf-false">âœ— False</button>
+        <button class="tf-btn tf-true" id="tf-true">✓ True</button>
+        <button class="tf-btn tf-false" id="tf-false">✗ False</button>
       </div>
       <div id="tf-explanation" class="hidden"></div>
       <div class="btn-row" style="margin-top:14px;">
-        <button class="btn btn-secondary hidden" id="tf-next">Next â†’</button>
+        <button class="btn btn-secondary hidden" id="tf-next">Next →</button>
       </div>
     `);
 
@@ -1131,7 +1131,7 @@ const TrueFalse = {
     const exp = document.getElementById('tf-explanation');
     if (exp) {
       exp.innerHTML = `<div class="explanation-box" style="margin-top:14px;">
-        <strong>${correct ? 'âœ“ Correct!' : 'âœ— Incorrect'}</strong><br>${escHtml(item.explanation)}
+        <strong>${correct ? '✓ Correct!' : '✗ Incorrect'}</strong><br>${escHtml(item.explanation)}
       </div>`;
       exp.classList.remove('hidden');
     }
@@ -1155,7 +1155,7 @@ const TrueFalse = {
       const pct = Math.round((this.score / this.items.length) * 100);
       Render.show(`
         <div class="end-screen">
-          <div class="end-icon">${pct >= 70 ? 'âš¡' : 'ðŸ“–'}</div>
+          <div class="end-icon">${pct >= 70 ? '⚡' : '📖'}</div>
           <div class="end-title">${pct >= 70 ? 'Great job!' : 'Keep studying!'}</div>
           <div class="score-pct ${pct >= 70 ? 'score-pass' : 'score-fail'}">${pct}%</div>
           <div class="end-sub">You got ${this.score} out of ${this.items.length} correct.</div>
@@ -1191,9 +1191,9 @@ const SpeedRound = {
   showStart() {
     Render.show(`
       <div class="end-screen">
-        <div class="end-icon">â±ï¸</div>
+        <div class="end-icon">⏱️</div>
         <div class="end-title">Speed Round</div>
-        <div class="end-sub">60 seconds. Flip each card â€” mark Got It or Still Learning as fast as you can!</div>
+        <div class="end-sub">60 seconds. Flip each card — mark Got It or Still Learning as fast as you can!</div>
         <button class="btn btn-primary btn-lg" id="speed-start">Start!</button>
       </div>
     `);
@@ -1223,8 +1223,8 @@ const SpeedRound = {
       <div class="speed-card" id="speed-card">${this.flipped ? escHtml(card.back) : escHtml(card.front)}</div>
       <div class="speed-answer-row">
         <button class="btn btn-secondary" id="speed-flip">Flip Card</button>
-        <button class="btn btn-danger" id="speed-no">âœ—</button>
-        <button class="btn btn-success" id="speed-yes">âœ“</button>
+        <button class="btn btn-danger" id="speed-no">✗</button>
+        <button class="btn btn-success" id="speed-yes">✓</button>
       </div>
     `);
     document.getElementById('speed-flip').addEventListener('click', () => {
@@ -1240,7 +1240,7 @@ const SpeedRound = {
     clearInterval(this.interval);
     Render.show(`
       <div class="end-screen">
-        <div class="end-icon">â±ï¸</div>
+        <div class="end-icon">⏱️</div>
         <div class="end-title">Time's Up!</div>
         <div class="score-pct score-pass">${this.score}</div>
         <div class="end-sub">cards correct in 60 seconds!</div>
@@ -1279,7 +1279,7 @@ const ChapterQuiz = {
     Render.show(`
       <div class="study-header">
         <div class="quiz-header-row">
-          <div class="quiz-q-label">ðŸ“ Chapter Quiz â€” Q${this.idx + 1} of ${this.questions.length}</div>
+          <div class="quiz-q-label">📝 Chapter Quiz — Q${this.idx + 1} of ${this.questions.length}</div>
         </div>
         <div class="study-progress-row">
           ${Render.progressBar(pct)}
@@ -1293,7 +1293,7 @@ const ChapterQuiz = {
       </div>
       <div id="quiz-exp" style="margin-top:12px;"></div>
       <div class="btn-row" style="margin-top:14px;">
-        <button class="btn btn-primary hidden" id="quiz-next">${this.idx < this.questions.length - 1 ? 'Next â†’' : 'See Results'}</button>
+        <button class="btn btn-primary hidden" id="quiz-next">${this.idx < this.questions.length - 1 ? 'Next →' : 'See Results'}</button>
       </div>
     `);
 
@@ -1347,9 +1347,9 @@ const ChapterQuiz = {
         <div class="review-q">${i+1}. ${escHtml(r.q.question)}</div>
         <div class="review-a">
           ${r.correct
-            ? `<span class="review-correct">âœ“ Correct</span>`
-            : `<span class="review-wrong">âœ— You chose: ${r.q.options[r.choice]}</span><br>
-               <span class="review-correct">âœ“ Answer: ${r.q.options[r.q.answerIndex]}</span>`}
+            ? `<span class="review-correct">✓ Correct</span>`
+            : `<span class="review-wrong">✗ You chose: ${r.q.options[r.choice]}</span><br>
+               <span class="review-correct">✓ Answer: ${r.q.options[r.q.answerIndex]}</span>`}
         </div>
       </div>
     `).join('');
@@ -1358,7 +1358,7 @@ const ChapterQuiz = {
       <div class="score-card" style="margin-bottom:16px;">
         <div class="score-pct ${pass ? 'score-pass' : 'score-fail'}">${pct}%</div>
         <div class="score-label">${this.score} / ${this.questions.length} correct</div>
-        <div style="color:var(--grey-mid);font-size:0.85rem;">${pass ? 'ðŸŽ‰ Great work!' : 'ðŸ“– Keep studying and try again!'}</div>
+        <div style="color:var(--grey-mid);font-size:0.85rem;">${pass ? '🎉 Great work!' : '📖 Keep studying and try again!'}</div>
       </div>
       <div class="btn-row" style="margin-bottom:20px;">
         <button class="btn btn-primary" id="quiz-again">Try Again</button>
@@ -1387,7 +1387,7 @@ const PracticeExam = {
     if (saved) {
       Render.show(`
         <div class="end-screen">
-          <div class="end-icon">ðŸ“‹</div>
+          <div class="end-icon">📋</div>
           <div class="end-title">Resume Exam?</div>
           <div class="end-sub">You have an exam in progress: Question ${saved.idx + 1} of ${saved.questions.length}.<br>Time elapsed: ${this.formatTime(saved.elapsed)}</div>
           <div class="btn-row">
@@ -1401,9 +1401,9 @@ const PracticeExam = {
     } else {
       Render.show(`
         <div class="end-screen">
-          <div class="end-icon">ðŸ“‹</div>
+          <div class="end-icon">📋</div>
           <div class="end-title">Practice Exam</div>
-          <div class="end-sub">100 questions Â· 2 hours 30 minutes Â· 60% to pass<br><br>Your progress is saved automatically â€” you can pause and resume any time.</div>
+          <div class="end-sub">100 questions · 2 hours 30 minutes · 60% to pass<br><br>Your progress is saved automatically — you can pause and resume any time.</div>
           <button class="btn btn-primary btn-lg" id="exam-start">Begin Exam</button>
         </div>
       `);
@@ -1413,7 +1413,7 @@ const PracticeExam = {
 
   startNew(chNum, data) {
     this.chNum = chNum;
-    // Build 100Q pool â€” repeat MC items as needed
+    // Build 100Q pool — repeat MC items as needed
     const mc = [...data.multipleChoice];
     let pool = [];
     while (pool.length < Math.min(100, mc.length * 5)) {
@@ -1495,8 +1495,8 @@ const PracticeExam = {
       </div>
       ${wasAnswered ? `<div class="explanation-box" style="margin-top:12px;">${escHtml(q.explanation)}</div>` : ''}
       <div class="btn-row" style="margin-top:14px;">
-        <button class="btn btn-secondary" id="exam-pause">â¸ Pause & Save</button>
-        ${wasAnswered ? `<button class="btn btn-primary" id="exam-next">${this.idx < this.questions.length - 1 ? 'Next â†’' : 'Submit'}</button>` : ''}
+        <button class="btn btn-secondary" id="exam-pause">⏸ Pause & Save</button>
+        ${wasAnswered ? `<button class="btn btn-primary" id="exam-next">${this.idx < this.questions.length - 1 ? 'Next →' : 'Submit'}</button>` : ''}
         ${this.idx === this.questions.length - 1 && wasAnswered ? '' : ''}
       </div>
     `);
@@ -1540,7 +1540,7 @@ const PracticeExam = {
     const btnRow = document.querySelector('.btn-row');
     const nextBtn = document.createElement('button');
     nextBtn.className = 'btn btn-primary';
-    nextBtn.textContent = this.idx < this.questions.length - 1 ? 'Next â†’' : 'Submit';
+    nextBtn.textContent = this.idx < this.questions.length - 1 ? 'Next →' : 'Submit';
     nextBtn.addEventListener('click', () => this.next());
     btnRow.appendChild(nextBtn);
   },
@@ -1565,7 +1565,7 @@ const PracticeExam = {
         <div class="score-pct ${pass ? 'score-pass' : 'score-fail'}">${pct}%</div>
         <div class="score-label">${this.score} / ${answered} correct</div>
         <div style="color:var(--grey-mid);font-size:0.9rem;margin-top:8px;">
-          ${pass ? 'ðŸŽ‰ PASS â€” Great work!' : 'ðŸ“– Keep studying â€” 60% to pass'}
+          ${pass ? '🎉 PASS — Great work!' : '📖 Keep studying — 60% to pass'}
         </div>
       </div>
       <div class="btn-row">
@@ -1593,7 +1593,7 @@ const WeakSpots = {
     if (weak.length === 0) {
       Render.show(`
         <div class="weak-empty">
-          <div class="weak-empty-icon">ðŸŒŸ</div>
+          <div class="weak-empty-icon">🌟</div>
           <div style="font-size:1.2rem;font-weight:700;margin-bottom:8px;">No Weak Spots!</div>
           <div>Complete other study modes to identify areas to work on.</div>
         </div>
@@ -1633,7 +1633,7 @@ const WeakSpots = {
     if (item.type === 'flashcard') {
       Render.show(`
         <div class="study-header">
-          <div class="study-mode-label">ðŸŽ¯ Weak Spots</div>
+          <div class="study-mode-label">🎯 Weak Spots</div>
           <div class="study-progress-row">
             ${Render.progressBar(pct)}
             <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
@@ -1648,7 +1648,7 @@ const WeakSpots = {
         </div>
         <div class="fc-action-row hidden" id="ws-actions">
           <button class="btn btn-danger" id="ws-no" style="flex:1;padding:14px;">Still Learning</button>
-          <button class="btn btn-success" id="ws-yes" style="flex:1;padding:14px;">Got It âœ“</button>
+          <button class="btn btn-success" id="ws-yes" style="flex:1;padding:14px;">Got It ✓</button>
         </div>
       `);
       let flipped = false;
@@ -1663,7 +1663,7 @@ const WeakSpots = {
     } else if (item.type === 'tf') {
       Render.show(`
         <div class="study-header">
-          <div class="study-mode-label">ðŸŽ¯ Weak Spots</div>
+          <div class="study-mode-label">🎯 Weak Spots</div>
           <div class="study-progress-row">
             ${Render.progressBar(pct)}
             <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
@@ -1671,16 +1671,16 @@ const WeakSpots = {
         </div>
         <div class="tf-statement">${escHtml(item.statement)}</div>
         <div class="tf-btn-row">
-          <button class="tf-btn tf-true" id="ws-true">âœ“ True</button>
-          <button class="tf-btn tf-false" id="ws-false">âœ— False</button>
+          <button class="tf-btn tf-true" id="ws-true">✓ True</button>
+          <button class="tf-btn tf-false" id="ws-false">✗ False</button>
         </div>
         <div id="ws-tf-exp"></div>
-        <div class="btn-row hidden" style="margin-top:14px;"><button class="btn btn-primary" id="ws-next">Next â†’</button></div>
+        <div class="btn-row hidden" style="margin-top:14px;"><button class="btn btn-primary" id="ws-next">Next →</button></div>
       `);
       const tfResp = (choice) => {
         const correct = choice === item.answer;
         ['ws-true','ws-false'].forEach(id => { const b = document.getElementById(id); if(b) b.disabled = true; });
-        document.getElementById('ws-tf-exp').innerHTML = `<div class="explanation-box" style="margin-top:14px;"><strong>${correct?'âœ“ Correct!':'âœ— Incorrect'}</strong><br>${escHtml(item.explanation)}</div>`;
+        document.getElementById('ws-tf-exp').innerHTML = `<div class="explanation-box" style="margin-top:14px;"><strong>${correct?'✓ Correct!':'✗ Incorrect'}</strong><br>${escHtml(item.explanation)}</div>`;
         document.querySelector('.btn-row').classList.remove('hidden');
         document.getElementById('ws-next').addEventListener('click', () => this.respond(correct, item));
       };
@@ -1690,7 +1690,7 @@ const WeakSpots = {
     } else if (item.type === 'mc') {
       Render.show(`
         <div class="study-header">
-          <div class="study-mode-label">ðŸŽ¯ Weak Spots</div>
+          <div class="study-mode-label">🎯 Weak Spots</div>
           <div class="study-progress-row">
             ${Render.progressBar(pct)}
             <div class="study-progress-text">${this.idx + 1} / ${this.items.length}</div>
@@ -1701,7 +1701,7 @@ const WeakSpots = {
           ${item.options.map((opt, i) => `<button class="option-btn" data-idx="${i}">${String.fromCharCode(65+i)}. ${escHtml(opt)}</button>`).join('')}
         </div>
         <div id="ws-exp"></div>
-        <div class="btn-row hidden" style="margin-top:14px;"><button class="btn btn-primary" id="ws-mc-next">Next â†’</button></div>
+        <div class="btn-row hidden" style="margin-top:14px;"><button class="btn btn-primary" id="ws-mc-next">Next →</button></div>
       `);
       document.querySelectorAll('.option-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1727,7 +1727,7 @@ const WeakSpots = {
       this.streak[key]++;
       if (this.streak[key] >= 3) {
         Progress.removeWeak(this.chNum, item.weakRef.type, item.weakRef.idx);
-        Render.toast('ðŸŒŸ Graduated from weak spots!');
+        Render.toast('🌟 Graduated from weak spots!');
       }
     } else {
       this.streak[key] = 0;
@@ -1739,7 +1739,7 @@ const WeakSpots = {
     } else {
       Render.show(`
         <div class="end-screen">
-          <div class="end-icon">ðŸŽ¯</div>
+          <div class="end-icon">🎯</div>
           <div class="end-title">Weak Spots Done!</div>
           <div class="end-sub">Keep reviewing until all items graduate (3 correct in a row).</div>
           <div class="btn-row">
@@ -1772,7 +1772,7 @@ const TextbookReader = {
       <div class="tb-chapter-select">
         ${available.map(ch => `
           <button class="tb-ch-btn" data-ch="${ch.number}">
-            Ch. ${ch.number} â€” ${escHtml(ch.title)}
+            Ch. ${ch.number} — ${escHtml(ch.title)}
           </button>`).join('')}
       </div>
     `);
@@ -1796,7 +1796,7 @@ const TextbookReader = {
     // Show table of contents for this chapter
     Render.show(`
       <div class="mode-header">
-        <div class="mode-ch-label">Chapter ${chNum} â€” Textbook</div>
+        <div class="mode-ch-label">Chapter ${chNum} — Textbook</div>
         <div class="mode-ch-title">${escHtml(data.title)}</div>
       </div>
       <div class="section-label">Sections</div>
@@ -1807,7 +1807,7 @@ const TextbookReader = {
           </div>`).join('')}
       </div>
       <div class="btn-row">
-        <button class="btn btn-primary" id="tb-read-all">Read All â†“</button>
+        <button class="btn btn-primary" id="tb-read-all">Read All ↓</button>
       </div>
     `);
     document.querySelectorAll('.tb-toc-item').forEach(el => {
@@ -1825,7 +1825,7 @@ const TextbookReader = {
     const isLast = idx === sections.length - 1;
     Render.show(`
       <div class="mode-header">
-        <div class="mode-ch-label">Chapter ${chNum} â€” ${escHtml(data.title)}</div>
+        <div class="mode-ch-label">Chapter ${chNum} — ${escHtml(data.title)}</div>
         <div class="mode-ch-title">${escHtml(s.section)}</div>
       </div>
       <div class="tb-content">
@@ -1834,9 +1834,9 @@ const TextbookReader = {
         </div>
       </div>
       <div class="tb-nav-row">
-        <button class="btn btn-secondary" id="tb-prev" ${isFirst ? 'disabled style="opacity:0.4"' : ''}>â† Previous</button>
+        <button class="btn btn-secondary" id="tb-prev" ${isFirst ? 'disabled style="opacity:0.4"' : ''}>← Previous</button>
         <button class="btn btn-secondary" id="tb-toc-btn">Contents</button>
-        <button class="btn btn-primary" id="tb-next" ${isLast ? 'disabled style="opacity:0.4"' : ''}>Next â†’</button>
+        <button class="btn btn-primary" id="tb-next" ${isLast ? 'disabled style="opacity:0.4"' : ''}>Next →</button>
       </div>
     `);
     if (!isFirst) document.getElementById('tb-prev').addEventListener('click', () => TextbookReader.renderSection(chNum, data, idx - 1));
@@ -1855,14 +1855,14 @@ const TextbookReader = {
       </div>`).join('');
     Render.show(`
       <div class="mode-header">
-        <div class="mode-ch-label">Chapter ${chNum} â€” Full Text</div>
+        <div class="mode-ch-label">Chapter ${chNum} — Full Text</div>
         <div class="mode-ch-title">${escHtml(data.title)}</div>
       </div>
       <div class="tb-content">
         ${sectionsHtml}
       </div>
       <div class="btn-row">
-        <button class="btn btn-secondary" id="tb-back-toc">â† Contents</button>
+        <button class="btn btn-secondary" id="tb-back-toc">← Contents</button>
       </div>
     `);
     document.getElementById('tb-back-toc').addEventListener('click', () => TextbookReader.renderChapter(chNum, data));
@@ -1911,7 +1911,7 @@ const GraphsViewer = {
               <div class="graph-card-title">${escHtml(g.title)}</div>
               <div class="graph-card-sub">Chapter ${g.chapter}</div>
             </div>
-            <div class="graph-card-arrow">â€º</div>
+            <div class="graph-card-arrow">›</div>
           </div>
         </div>`).join('');
     Render.show(`
@@ -1966,7 +1966,7 @@ const GraphsViewer = {
     const pts = graph.keyPoints || (graph.keyPoint ? [graph.keyPoint] : []);
     if (pts.length > 0) {
       bodyHtml += `<div class="section-label" style="margin-top:16px;">Key Points</div>`;
-      bodyHtml += pts.map(p => `<div class="graph-keypoint">â€¢ ${escHtml(p)}</div>`).join('');
+      bodyHtml += pts.map(p => `<div class="graph-keypoint">• ${escHtml(p)}</div>`).join('');
     }
     Render.show(`
       <div class="graph-detail">
@@ -1974,7 +1974,7 @@ const GraphsViewer = {
         <div class="graph-detail-title">${escHtml(graph.title)}</div>
         ${bodyHtml}
         <div class="btn-row" style="margin-top:20px;">
-          <button class="btn btn-secondary" id="graph-back">â† Back to Graphs</button>
+          <button class="btn btn-secondary" id="graph-back">← Back to Graphs</button>
         </div>
       </div>
     `);
@@ -1982,8 +1982,8 @@ const GraphsViewer = {
   },
 
   iconForType(type) {
-    const icons = { supply_demand: 'ðŸ“‰', business_cycle: 'ðŸ”„', line_chart: 'ðŸ“ˆ', bar_chart: 'ðŸ“Š', table: 'ðŸ“‹' };
-    return icons[type] || 'ðŸ“Š';
+    const icons = { supply_demand: '📉', business_cycle: '🔄', line_chart: '📈', bar_chart: '📊', table: '📋' };
+    return icons[type] || '📊';
   }
 };
 
@@ -2108,10 +2108,10 @@ function escHtml(str) {
 App.init().catch(err => {
   document.getElementById('app').innerHTML = `
     <div style="text-align:center;padding:40px 20px;color:var(--grey-mid);">
-      <div style="font-size:2rem;margin-bottom:12px;">âš ï¸</div>
+      <div style="font-size:2rem;margin-bottom:12px;">⚠️</div>
       <div style="font-size:1rem;">Could not load study guide.<br><br>
       <em>${err.message}</em><br><br>
-      Make sure you're opening this via a local server or GitHub Pages â€” not directly from a file.</div>
+      Make sure you're opening this via a local server or GitHub Pages — not directly from a file.</div>
     </div>`;
 });
 </script>
